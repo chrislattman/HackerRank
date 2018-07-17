@@ -1,7 +1,7 @@
+// https://www.hackerrank.com/contests/visa-codesprint/challenges/fee-queries
+
 import java.io.*;
 import java.util.*;
-
-// https://www.hackerrank.com/contests/visa-codesprint/challenges/fee-queries
 
 public class Solution {
 

@@ -1,7 +1,7 @@
+// https://www.hackerrank.com/contests/visa-codesprint/challenges/visa-checksum
+
 import java.io.*;
 import java.util.*;
-
-// https://www.hackerrank.com/contests/visa-codesprint/challenges/visa-checksum
 
 public class Solution {
 

@@ -1,10 +1,10 @@
+// https://www.hackerrank.com/contests/visa-codesprint/challenges/torque-and-product
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
-
-// https://www.hackerrank.com/contests/visa-codesprint/challenges/torque-and-product
 
 public class Solution {
 

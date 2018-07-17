@@ -1,10 +1,10 @@
+// https://www.hackerrank.com/contests/visa-codesprint/challenges/vbv-password
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
-
-// https://www.hackerrank.com/contests/visa-codesprint/challenges/vbv-password
 
 public class Solution {
 

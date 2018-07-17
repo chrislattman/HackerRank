@@ -1,7 +1,7 @@
+// https://www.hackerrank.com/contests/visa-codesprint/challenges/defines
+
 import java.io.*;
 import java.util.*;
-
-// https://www.hackerrank.com/contests/visa-codesprint/challenges/defines
 
 public class Solution {
 
