@@ -17,7 +17,8 @@ public class Solution {
         Matcher matchNum = num.matcher(s);
         Matcher matchLetter = letter.matcher(s);
         Matcher matchSpecial = special.matcher(s);
-        if (s.length() > 7 && matchNum.find() && matchLetter.find() && matchSpecial.find()) {
+        if (s.length() > 7 && matchNum.find() && matchLetter.find() && 
+            matchSpecial.find()) {
             System.out.println("VALID");
         }
         else {
