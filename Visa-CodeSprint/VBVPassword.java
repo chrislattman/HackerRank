@@ -23,5 +23,6 @@ public class Solution {
         else {
             System.out.println("INVALID");
         }
+        in.close();
     }
 }

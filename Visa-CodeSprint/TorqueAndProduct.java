@@ -16,5 +16,6 @@ public class Solution {
                 System.out.printf("%d ", n / (i * i));
             }
         }
+        in.close();
     }
 }

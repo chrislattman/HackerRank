@@ -37,5 +37,6 @@ public class Solution {
         else {
             System.out.println(letters.pop());
         }
+        in.close();
     }
 }

@@ -11,7 +11,8 @@ public class Solution {
         for (int i = 0; i < t; i++) {
             int x = in.nextInt();
             int m = in.nextInt();
-            
         }
+        // solution goes here
+        in.close();
     }
 }
