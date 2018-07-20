@@ -10,27 +10,23 @@ public class Solution {
 
     static int traderProfit(int k, int n, int[] A) {
         // Complete this function
-        int curr = A[0];
-        int profit = 0;
-        int trans = 0;
-        int i = 0;
-        boolean sold = false;
-        while (i < n - 1 && trans < k) {
-            if (A[i] == A[i + 1] || (A[i] > A[i + 1] && sold) || (A[i] < A[i + 1] && !sold)) {
-                //nothing
-            }
-            else if (A[i] > A[i + 1] && !sold) {
-                profit += A[i] - curr;
-                sold = true;
-                trans++;
-            }
-            else { //A[i] < A[i + 1] && sold
-                curr = A[i];
-                sold = false;
-            }
-            i++;
+        int[][] profit = new int[k + 1][n + 1];
+        for (int i = 0; i <= k; i++) {
+            profit[i][0] = 0;
         }
-        return profit;
+        for (int j = 0; j <= n; j++) {
+            profit[0][j] = 0;
+        }
+        for (int i = 1; i <= k; i++) {
+            for (int j = 1; j < n; j++) {
+                int max_so_far = 0;
+                for (int m = 0; m < j; m++) {
+                    max_so_far = Math.max(max_so_far, A[j] - A[m] + profit[i - 1][m]);
+                }
+                profit[i][j] = Math.max(profit[i][j - 1], max_so_far);
+            }
+        }
+        return profit[k][n - 1];
     }
 
     public static void main(String[] args) {
