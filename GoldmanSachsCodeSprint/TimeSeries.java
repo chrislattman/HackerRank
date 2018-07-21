@@ -38,15 +38,11 @@ public class Solution {
             }
             else {
                 boolean foundtime = false;
-                int shift = 0;
                 int timeindex = 0;
                 for (int i = 0; i < t.length; i++) {
                     if (t[i] >= v) {
                         timeindex = i;
                         foundtime = true;
-                        if (t[i] > v) {
-                            shift = -1;
-                        }
                         break;
                     }
                 }
@@ -54,20 +50,13 @@ public class Solution {
                     System.out.println(-1);
                     continue;
                 }
-                boolean foundhigher = false;
-                int max = p[timeindex + shift];
+                int max = p[timeindex];
                 for (int j = timeindex; j < p.length; j++) {
                     if (p[j] > max) {
                         max = p[j];
-                        foundhigher = true;
                     }
                 }
-                if (foundhigher) {
-                    System.out.println(max);
-                }
-                else {
-                    System.out.println(-1);
-                }
+                System.out.println(max);
             }
         }
         in.close();
