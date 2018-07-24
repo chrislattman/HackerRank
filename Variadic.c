@@ -1,3 +1,5 @@
+// https://www.hackerrank.com/challenges/variadic-functions-in-c/problem
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
