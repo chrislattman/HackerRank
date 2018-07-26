@@ -69,5 +69,6 @@ public class Solution {
             System.out.println(set.last().getFname());
             set.remove(set.last());
         }
+        in.close();
     }
 }

@@ -7,6 +7,8 @@ import java.math.*;
 import java.util.regex.*;
 
 public class Solution {
+    static int mod = 1000000007;
+    
     static int tileStackingProblem(int n, int m, int k) {
         // Complete this function
         if (k > n) {
@@ -22,15 +24,15 @@ public class Solution {
             sum = 0;
             for (int c = 0; c <= k; c++) {
                 sum += dp[b][c];
-                dp[b + 1][c] = sum % 1000000007;
+                dp[b + 1][c] = sum % mod;
             }
         }
         for (int d = 2; d <= m; d++) {
             for (int e = k + 1; e <= n; e++) {
                 long val = dp[d][e - 1] - dp[d - 1][e - k - 1] + dp[d - 1][e];
-                val %= 1000000007;
+                val %= mod;
                 while (val < 0) {
-                    val += 1000000007;
+                    val += mod;
                 }
                 dp[d][e] = val;
             }
