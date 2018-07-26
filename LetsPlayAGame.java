@@ -8,7 +8,7 @@ import java.util.regex.*;
 
 public class Solution {
 
-    static int playGame(String s, int[][] arr) {
+    static int playGame(int[][] arr) {
         // Complete this function
         int a = 0;
         int b = 0;
@@ -35,7 +35,7 @@ public class Solution {
             arr[arr_i][1] = s.charAt(arr_i) & 1;
         }
         Arrays.sort(arr, (a, b) -> Integer.compare(a[0], b[0]));
-        int result = playGame(s, arr);
+        int result = playGame(arr);
         System.out.println(result);
         in.close();
     }
