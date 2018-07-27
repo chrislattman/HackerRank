@@ -1,2 +1,2 @@
 # HackerRank
-HackerRank CodeSprint problems that I've solved.
+HackerRank problems that I've solved.
