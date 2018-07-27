@@ -1,3 +1,5 @@
+// https://www.hackerrank.com/challenges/dynamic-array-in-c/problem
+
 #include <stdio.h>
 #include <stdlib.h>
 

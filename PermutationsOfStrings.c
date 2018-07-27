@@ -1,3 +1,5 @@
+// https://www.hackerrank.com/challenges/permutations-of-strings/problem
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
