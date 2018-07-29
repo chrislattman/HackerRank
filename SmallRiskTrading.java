@@ -36,5 +36,6 @@ public class Solution {
             }
         }
         System.out.printf("%.2f", max);
+        in.close();
     }
 }
