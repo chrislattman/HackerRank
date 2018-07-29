@@ -28,11 +28,9 @@ public class Solution {
         }
         Arrays.sort(expected);
         double max = 0;
-        double curr = 0;
         for (int e = n - 1; e >= n - k; e--) {
-            curr = expected[e];
-            if (curr > 0) {
-                max += curr;
+            if (expected[e] > 0) {
+                max += expected[e];
             }
         }
         System.out.printf("%.2f", max);
