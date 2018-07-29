@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/challenges/even-odd-query/problem
+// https://www.hackerrank.com/challenges/even-odd-query
 
 import java.io.*;
 import java.math.*;

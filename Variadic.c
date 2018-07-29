@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/challenges/variadic-functions-in-c/problem
+// https://www.hackerrank.com/challenges/variadic-functions-in-c
 
 #include <stdarg.h>
 #include <stdio.h>

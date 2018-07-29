@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/contests/moodys-analytics-fall-university-codesprint/challenges/lets-play-a-game-2/problem
+// https://www.hackerrank.com/contests/moodys-analytics-fall-university-codesprint/challenges/lets-play-a-game-2
 
 import java.io.*;
 import java.util.*;

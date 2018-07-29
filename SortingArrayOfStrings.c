@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/challenges/sorting-array-of-strings/problem
+// https://www.hackerrank.com/challenges/sorting-array-of-strings
 
 #include <stdio.h>
 #include <stdlib.h>

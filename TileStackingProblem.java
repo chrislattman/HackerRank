@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/contests/moodys-analytics-fall-university-codesprint/challenges/tile-stacking-problem/problem
+// https://www.hackerrank.com/contests/moodys-analytics-fall-university-codesprint/challenges/tile-stacking-problem
 
 import java.io.*;
 import java.util.*;

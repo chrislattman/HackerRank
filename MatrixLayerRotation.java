@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
+// https://www.hackerrank.com/challenges/matrix-rotation-algo
 
 import java.io.*;
 import java.math.*;

@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/challenges/dynamic-array-in-c/problem
+// https://www.hackerrank.com/challenges/dynamic-array-in-c
 
 #include <stdio.h>
 #include <stdlib.h>

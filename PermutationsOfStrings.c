@@ -1,4 +1,4 @@
-// https://www.hackerrank.com/challenges/permutations-of-strings/problem
+// https://www.hackerrank.com/challenges/permutations-of-strings
 
 #include <stdio.h>
 #include <stdlib.h>
