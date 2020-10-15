@@ -1,0 +1,92 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                width: 33%;
+            }
+
+            .result {
+                background-color: lightgray;
+                border: solid;
+                height: 48px;
+                font-size: 20px;
+            }
+
+            .button01 {
+                background-color: lightgreen;
+                color: brown;
+            }
+
+            .buttonClrEql {
+                background-color: darkgreen;
+                color: white;
+            }
+
+            .buttonSubSumMulDiv {
+                background-color: black;
+                color: red;
+            }
+
+            button {
+                width: 25%;
+                height: 36px;
+                font-size: 18px;
+                margin: 0px;
+                float: left;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id='res' class='result'></div>
+        <div id='btns'>
+            <button id='btn0' class='button01'>0</button>
+            <button id='btn1' class='button01'>1</button>
+            <button id='btnClr' class='buttonClrEql'>C</button>
+            <button id='btnEql' class='buttonClrEql'>=</button>
+            <button id='btnSum' class='buttonSubSumMulDiv'>+</button>
+            <button id='btnSub' class='buttonSubSumMulDiv'>-</button>
+            <button id='btnMul' class='buttonSubSumMulDiv'>*</button>
+            <button id='btnDiv' class='buttonSubSumMulDiv'>/</button>
+        </div>
+
+        <script>
+            /* Parameter 'e' is the click Event */
+            function disp(e) {
+                /* Older IE browsers have a srcElement property,
+                but other browsers have a 'target' property; 
+                Set btn to whichever exists. */
+                var btn = e.target || e.srcElement;
+                
+                /* Get the clicked element's innerHTML */
+                document.getElementById("res").innerHTML += document.getElementById(btn.id).innerHTML;
+            }
+
+            function clear(e) {
+                document.getElementById("res").innerHTML = "";
+            }
+
+            function equals(e) {
+                var exp = document.getElementById("res").innerHTML;
+                var array = exp.split(/(\D)/);
+                var operand1 = parseInt(array[0], 2);
+                var operator = array[1];
+                var operand2 = parseInt(array[2], 2);
+                var expression = operand1 + operator + operand2;
+                document.getElementById("res").innerHTML = Math.floor(eval(expression)).toString(2);
+            }
+            
+            /* Add a click event listener that calls action(e) when clicked */
+            document.getElementById('btn0').addEventListener('click', disp);
+            document.getElementById('btn1').addEventListener('click', disp);
+            document.getElementById('btnSum').addEventListener('click', disp);
+            document.getElementById('btnSub').addEventListener('click', disp);
+            document.getElementById('btnMul').addEventListener('click', disp);
+            document.getElementById('btnDiv').addEventListener('click', disp);
+            document.getElementById('btnClr').addEventListener('click', clear);
+            document.getElementById('btnEql').addEventListener('click', equals);
+        </script>
+    </body>
+</html>

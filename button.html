@@ -1,0 +1,27 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .buttonClass {
+                width: 96px;
+                height: 48px;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <button id="btn" class="buttonClass">0</button>
+
+        <script>
+            var btn = document.getElementById("btn");
+            var num = 1;
+            
+            btn.addEventListener("click", function() {
+                btn.innerHTML = num;
+                num++;
+            });
+        </script>
+    </body>
+</html>
