@@ -14,8 +14,7 @@ string isValid(string s) {
     for (int i = 0; i < s.length(); i++) {
         char current = s[i];
         if (dict.count(current) > 0) {
-            auto search = dict.find(current);
-            dict[current] = search->second + 1;
+            dict[current] += 1;
         }
         else {
             dict[current] = 1;

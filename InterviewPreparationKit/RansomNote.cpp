@@ -13,8 +13,7 @@ void checkMagazine(vector<string> magazine, vector<string> note) {
     for (int i = 0; i < magazine.size(); i++) {
         string word = magazine[i];
         if (wordCounts.count(word) > 0) {
-            auto search = wordCounts.find(word);
-            wordCounts[word] = search->second + 1;
+            wordCounts[word] += 1;
         }
         else {
             wordCounts[word] = 1;
@@ -23,9 +22,8 @@ void checkMagazine(vector<string> magazine, vector<string> note) {
 
     for (int j = 0; j < note.size(); j++) {
         string word = note[j];
-        auto search = wordCounts.find(word);
-        if (wordCounts.count(word) > 0 && search->second > 0) {
-            wordCounts[word] = search->second - 1;
+        if (wordCounts.count(word) > 0 && wordCounts[word] > 0) {
+            wordCounts[word] -= 1;
         }
         else {
             cout << "No" << endl;
