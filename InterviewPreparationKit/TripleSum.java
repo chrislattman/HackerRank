@@ -15,51 +15,47 @@ public class Solution {
         Arrays.sort(b);
         Arrays.sort(c);
 
-        int[] a_set = new int[a.length];
-        int[] b_set = new int[b.length];
-        int[] c_set = new int[c.length];
-        a_set[0] = a[0];
-        b_set[0] = b[0];
-        c_set[0] = c[0];
-        int a_size = 1;
-        int b_size = 1;
-        int c_size = 1;
+        ArrayList<Integer> a_set = new ArrayList<>();
+        ArrayList<Integer> b_set = new ArrayList<>();
+        ArrayList<Integer> c_set = new ArrayList<>();
+        a_set.add(a[0]);
+        b_set.add(b[0]);
+        c_set.add(c[0]);
 
         for (int i = 1; i < a.length; i++) {
             if (a[i] != a[i - 1]) {
-                a_set[a_size++] = a[i];
+                a_set.add(a[i]);
             }
         }
 
         for (int j = 1; j < b.length; j++) {
             if (b[j] != b[j - 1]) {
-                b_set[b_size++] = b[j];
+                b_set.add(b[j]);
             }
         }
 
         for (int k = 1; k < c.length; k++) {
             if (c[k] != c[k - 1]) {
-                c_set[c_size++] = c[k];
+                c_set.add(c[k]);
             }
         }
 
-        long triplets = 0L;
-        for (int m = 0; m < b_size; m++) {
-            int a_count = 0;
-            int c_count = 0;
-            int a_index = 0;
-            int c_index = 0;
+        int a_size = a_set.size();
+        int b_size = b_set.size();
+        int c_size = c_set.size();
 
-            while (a_index < a_size && a_set[a_index] <= b_set[m]) {
-                a_count++;
+        long triplets = 0L;
+        int a_index = 0;
+        int c_index = 0;
+        for (int m = 0; m < b_size; m++) {
+            while (a_index < a_size && a_set.get(a_index) <= b_set.get(m)) {
                 a_index++;
             }
-            while (c_index < c_size && c_set[c_index] <= b_set[m]) {
-                c_count++;
+            while (c_index < c_size && c_set.get(c_index) <= b_set.get(m)) {
                 c_index++;
             }
 
-            triplets += (long) a_count * (long) c_count;
+            triplets += (long) a_index * (long) c_index;
         }
 
         return triplets;

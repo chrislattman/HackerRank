@@ -31,25 +31,21 @@ def triplets(a, b, c):
         if c[k] != c[k - 1]:
             c_set.append(c[k])
 
-    triplets = 0
     a_size = len(a_set)
     b_size = len(b_set)
     c_size = len(c_set)
-    for m in range(b_size):
-        a_count = 0
-        c_count = 0
-        a_index = 0
-        c_index = 0
 
+    triplets = 0
+    a_index = 0
+    c_index = 0
+    for m in range(b_size):
         while a_index < a_size and a_set[a_index] <= b_set[m]:
-            a_count += 1
             a_index += 1
 
         while c_index < c_size and c_set[c_index] <= b_set[m]:
-            c_count += 1
             c_index += 1
 
-        triplets += a_count * c_count
+        triplets += a_index * c_index
 
     return triplets
 

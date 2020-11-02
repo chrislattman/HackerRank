@@ -21,6 +21,7 @@ int compare(const void *a, const void *b) {
     if (arg1 > arg2) {
         return 1;
     }
+    
     return 0;
 }
 

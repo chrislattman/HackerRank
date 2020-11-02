@@ -36,26 +36,22 @@ long triplets(vector<int> a, vector<int> b, vector<int> c) {
         }
     }
 
-    long triplets = 0;
     int a_size = a_set.size();
     int b_size = b_set.size();
     int c_size = c_set.size();
+    
+    long triplets = 0;
+    int a_index = 0;
+    int c_index = 0;
     for (int m = 0; m < b_size; m++) {
-        int a_count = 0;
-        int c_count = 0;
-        int a_index = 0;
-        int c_index = 0;
-
         while (a_index < a_size && a_set[a_index] <= b_set[m]) {
-            a_count++;
             a_index++;
         }
         while (c_index < c_size && c_set[c_index] <= b_set[m]) {
-            c_count++;
             c_index++;
         }
 
-        triplets += (long) a_count * (long) c_count;
+        triplets += (long) a_index * (long) c_index;
     }
 
     return triplets;
