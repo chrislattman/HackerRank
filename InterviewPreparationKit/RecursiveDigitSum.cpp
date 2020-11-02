@@ -13,7 +13,7 @@ int superDigit(string n, int k) {
 
     long sum = 0;
     for (int i = 0; i < n.length(); i++) {
-        sum += ((long) n[i] - '0') * k;
+        sum += ((long) n[i] - '0') * (long) k;
     }
 
     return superDigit(to_string(sum), 1);

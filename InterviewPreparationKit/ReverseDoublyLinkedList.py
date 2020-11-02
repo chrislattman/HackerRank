@@ -51,6 +51,7 @@ def print_doubly_linked_list(node, sep, fptr):
 #
 def reverse(head):
     current = head
+    
     while current is not None:
         next_node = current.next
 

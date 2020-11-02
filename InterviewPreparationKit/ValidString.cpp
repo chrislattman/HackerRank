@@ -56,6 +56,7 @@ string isValid(string s) {
         s.length() && highestFrequency - 1 == lowestFrequency) {
         return "YES";
     }
+    
     return "NO";
 }
 

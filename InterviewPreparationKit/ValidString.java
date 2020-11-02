@@ -63,6 +63,7 @@ public class Solution {
             s.length() && highestFrequency - 1 == lowestFrequency) {
             return "YES";
         }
+        
         return "NO";
     }
 

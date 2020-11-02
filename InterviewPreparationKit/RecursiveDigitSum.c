@@ -20,7 +20,7 @@ int superDigit(char* n, int k) {
 
     long sum = 0;
     for (int i = 0; i < strlen(n); i++) {
-        sum += ((long) n[i] - '0') * k;
+        sum += ((long) n[i] - '0') * (long) k;
     }
     int length = snprintf(NULL, 0, "%ld", sum);
     char* str = (char*) malloc(length + 1);

@@ -70,6 +70,7 @@ public class Solution {
      */
     static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
         DoublyLinkedListNode current = head;
+        
         while (current != null) {
             DoublyLinkedListNode next = current.next;
 
@@ -84,6 +85,7 @@ public class Solution {
                 current = current.prev;
             }
         }
+
         return head;
     }
 

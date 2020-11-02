@@ -30,6 +30,7 @@ int stepPerms(int n) {
     
     int result = vec[n - 1];
     free(vec);
+    
     return result;
 }
 

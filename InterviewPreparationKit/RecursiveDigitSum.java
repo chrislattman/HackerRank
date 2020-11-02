@@ -15,9 +15,9 @@ public class Solution {
             return Integer.parseInt(n);
         }
         
-        long sum = 0;
+        long sum = 0L;
         for (int i = 0; i < n.length(); i++) {
-            sum += ((long) n.charAt(i) - 48) * k;
+            sum += ((long) n.charAt(i) - 48) * (long) k;
         }
 
         return superDigit(sum + "", 1);

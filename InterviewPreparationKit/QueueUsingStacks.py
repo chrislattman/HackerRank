@@ -8,12 +8,14 @@ class MyQueue(object):
         if len(self.stack_oldest_on_top) == 0:
             while len(self.stack_newest_on_top) > 0:
                 self.stack_oldest_on_top.append(self.stack_newest_on_top.pop())
+
         return self.stack_oldest_on_top[-1]
         
     def pop(self):
         if len(self.stack_oldest_on_top) == 0:
             while len(self.stack_newest_on_top) > 0:
                 self.stack_oldest_on_top.append(self.stack_newest_on_top.pop())
+                
         return self.stack_oldest_on_top.pop()
         
     def put(self, value):

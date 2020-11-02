@@ -20,6 +20,7 @@ public class Solution {
                     stackOldestOnTop.push(stackNewestOnTop.pop());
                 }
             }
+
             return stackOldestOnTop.peek();
         }
 
@@ -29,6 +30,7 @@ public class Solution {
                     stackOldestOnTop.push(stackNewestOnTop.pop());
                 }
             }
+            
             return stackOldestOnTop.pop();
         }
     }

@@ -15,9 +15,9 @@ public class Solution {
         long quotient = n / stringLength;
         long remainder = n % stringLength;
 
-        long aCount = 0;
-        long aCountRemainder = 0;
-        for (int i = 0; i < stringLength; i++) {
+        long aCount = 0L;
+        long aCountRemainder = 0L;
+        for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'a') {
                 if (i < remainder) {
                     aCountRemainder++;

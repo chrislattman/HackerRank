@@ -42,6 +42,7 @@ public class Solution {
         if (stack.isEmpty()) {
             return "YES";
         }
+        
         return "NO";
     }
 

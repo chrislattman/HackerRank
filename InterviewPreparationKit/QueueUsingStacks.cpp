@@ -22,6 +22,7 @@ class MyQueue {
                     stack_newest_on_top.pop();
                 }
             }
+
             return stack_oldest_on_top.pop();
         }
 
@@ -32,6 +33,7 @@ class MyQueue {
                     stack_newest_on_top.pop();
                 }
             }
+            
             return stack_oldest_on_top.top();
         }
 };

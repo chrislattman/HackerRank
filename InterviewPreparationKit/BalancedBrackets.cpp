@@ -36,6 +36,7 @@ string isBalanced(string s) {
     if (brackets.empty()) {
         return "YES";
     }
+    
     return "NO";
 }
 
