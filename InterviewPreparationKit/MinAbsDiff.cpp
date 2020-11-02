@@ -11,7 +11,7 @@ int minimumAbsoluteDifference(vector<int> arr) {
     sort(arr.begin(), arr.end());
 
     for (int i = 0; i < arr.size() - 1; i++) {
-        int diff = abs(arr[i] - arr[i + 1]);
+        int diff = arr[i + 1] - arr[i];
         if (diff < min_diff) {
             min_diff = diff;
         }

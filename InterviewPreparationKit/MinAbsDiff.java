@@ -15,7 +15,7 @@ public class Solution {
         Arrays.sort(arr);
 
         for (int i = 0; i < arr.length - 1; i++) {
-            int diff = Math.abs(arr[i] - arr[i + 1]);
+            int diff = arr[i + 1] - arr[i];
             if (diff < min_diff) {
                 min_diff = diff;
             }

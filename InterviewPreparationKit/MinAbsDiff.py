@@ -12,7 +12,7 @@ def minimumAbsoluteDifference(arr):
     arr.sort()
 
     for i in range(len(arr) - 1):
-        diff = abs(arr[i] - arr[i + 1])
+        diff = arr[i + 1] - arr[i]
         if diff < min_diff:
             min_diff = diff
 

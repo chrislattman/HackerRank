@@ -32,7 +32,7 @@ int minimumAbsoluteDifference(int arr_count, int* arr) {
     qsort(arr, arr_count, sizeof(int), compare);
 
     for (int i = 0; i < arr_count - 1; i++) {
-        int diff = abs(arr[i] - arr[i + 1]);
+        int diff = arr[i + 1] - arr[i];
         if (diff < min_diff) {
             min_diff = diff;
         }
