@@ -66,7 +66,6 @@ public class Solution {
                     else {
                         frequencies.put(new_frequency_key, 1);
                     }
-
                 }
                 else if (map.containsKey(data)) {
                     map.remove(data);
@@ -74,7 +73,6 @@ public class Solution {
                         frequencies.put(1, frequencies.get(1) - 1);
                     }
                 }
-                
             }
             else {
                 if (frequencies.containsKey(data) && frequencies.get(data) > 0) {
