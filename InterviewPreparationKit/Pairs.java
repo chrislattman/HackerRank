@@ -19,14 +19,12 @@ public class Solution {
         if (arr[mid] == val) {
             return mid;
         }
-        if (arr[mid] > val) {
+        else if (arr[mid] > val) {
             return binarysearch(arr, left, mid - 1, val);
         }
-        if (arr[mid] < val) {
+        else {
             return binarysearch(arr, mid + 1, right, val);
         }
-
-        return -1;
     }
 
     // Complete the pairs function below.

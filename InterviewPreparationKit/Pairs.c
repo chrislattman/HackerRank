@@ -19,11 +19,12 @@ int compare(const void *a, const void *b) {
     if (arg1 < arg2) {
         return -1;
     }
-    if (arg1 > arg2) {
+    else if (arg1 > arg2) {
         return 1;
     }
-    
-    return 0;
+    else {
+        return 0;
+    }
 }
 
 int binarysearch(int* arr, int left, int right, int val) {
@@ -36,14 +37,12 @@ int binarysearch(int* arr, int left, int right, int val) {
     if (arr[mid] == val) {
         return mid;
     }
-    if (arr[mid] > val) {
+    else if (arr[mid] > val) {
         return binarysearch(arr, left, mid - 1, val);
     }
-    if (arr[mid] < val) {
+    else {
         return binarysearch(arr, mid + 1, right, val);
     }
-
-    return -1;
 }
 
 // Complete the pairs function below.

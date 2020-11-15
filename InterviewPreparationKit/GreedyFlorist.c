@@ -19,11 +19,12 @@ int compare(const void *a, const void *b) {
     if (arg1 < arg2) {
         return -1;
     }
-    if (arg1 > arg2) {
+    else if (arg1 > arg2) {
         return 1;
     }
-    
-    return 0;
+    else {
+        return 0;
+    }
 }
 
 // Complete the getMinimumCost function below.

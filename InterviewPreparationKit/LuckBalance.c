@@ -19,17 +19,18 @@ int compare(const void *a, const void *b) {
     if (arg1 < arg2) {
         return -1;
     }
-    if (arg1 > arg2) {
+    else if (arg1 > arg2) {
         return 1;
     }
-    
-    return 0;
+    else {
+        return 0;
+    }
 }
 
 // Complete the luckBalance function below.
 int luckBalance(int k, int contests_rows, int contests_columns, int** contests) {
     int balance = 0;
-    int* important = (int*) malloc(sizeof(int) * contests_rows);
+    int* important = (int*) malloc(contests_rows * sizeof(int));
     int importantIndex = 0;
 
     for (int i = 0; i < contests_rows; i++) {
@@ -57,6 +58,7 @@ int luckBalance(int k, int contests_rows, int contests_columns, int** contests) 
             balance += important[p];
         }
     }
+    free(important);
 
     return balance;
 }

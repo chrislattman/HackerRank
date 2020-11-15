@@ -16,19 +16,21 @@ int stepPerms(int n) {
     if (n < 3) {
         return n;
     }
-    if (n == 3) {
-        return 4;
-    }
 
-    int* vec = malloc(sizeof(int) * n);
+    int* vec = malloc(3 * sizeof(int));
     vec[0] = 1;
     vec[1] = 2;
     vec[2] = 4;
+    int current;
+
     for (int i = 3; i < n; i++) {
-        vec[i] = vec[i - 1] + vec[i - 2] + vec[i - 3];
+        current = vec[2] + vec[1] + vec[0];
+        vec[0] = vec[1];
+        vec[1] = vec[2];
+        vec[2] = current;
     }
     
-    int result = vec[n - 1];
+    int result = vec[2];
     free(vec);
     
     return result;

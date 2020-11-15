@@ -29,19 +29,21 @@ function stepPerms(n) {
     if (n < 3) {
         return n;
     }
-    if (n == 3) {
-        return 4;
-    }
 
-    let array = new Int32Array(n);
+    let array = new Int32Array(3);
     array[0] = 1;
     array[1] = 2;
     array[2] = 4;
+    let current;
+
     for (let i = 3; i < n; i++) {
-        array[i] = array[i - 1] + array[i - 2] + array[i - 3];
+        current = array[2] + array[1] + array[0];
+        array[0] = array[1];
+        array[1] = array[2];
+        array[2] = current;
     }
     
-    return array[n - 1];
+    return array[2];
 }
 
 function main() {
