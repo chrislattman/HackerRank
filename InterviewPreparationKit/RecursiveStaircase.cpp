@@ -9,20 +9,19 @@ int stepPerms(int n) {
         return n;
     }
 
-    vector<int> vec;
-    vec.insert(vec.end(), 1);
-    vec.insert(vec.end(), 2);
-    vec.insert(vec.end(), 4);
+    int a = 1;
+    int b = 2;
+    int c = 4;
     int current;
 
     for (int i = 3; i < n; i++) {
-        current = vec[2] + vec[1] + vec[0];
-        vec[0] = vec[1];
-        vec[1] = vec[2];
-        vec[2] = current;
+        current = a + b + c;
+        a = b;
+        b = c;
+        c = current;
     }
     
-    return vec[2];
+    return c;
 }
 
 int main()

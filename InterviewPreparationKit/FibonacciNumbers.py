@@ -3,7 +3,15 @@ def fibonacci(n):
     if n < 2:
         return n
 
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    a = 1
+    b = 1
+
+    for i in range(2, n):
+        current = a + b
+        a = b
+        b = current
+    
+    return b
 
 
 n = int(input())

@@ -26,21 +26,23 @@ function readLine() {
 }
 
 function binarysearch(arr, left, right, val) {
-    if (left > right) {
-        return -1;
-    }
+    let mid;
 
-    let mid = parseInt((left + right) / 2);
-
-    if (arr[mid] == val) {
-        return mid;
+    while (left <= right) {
+        mid = parseInt((left + right) / 2);
+        
+        if (arr[mid] == val) {
+            return mid;
+        }
+        else if (arr[mid] > val) {
+            right = mid - 1;
+        }
+        else {
+            left = mid + 1;
+        }
     }
-    else if (arr[mid] > val) {
-        return binarysearch(arr, left, mid - 1, val);
-    }
-    else {
-        return binarysearch(arr, mid + 1, right, val);
-    }
+    
+    return -1;
 }
     
 // Complete the pairs function below.

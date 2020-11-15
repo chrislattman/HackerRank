@@ -19,17 +19,17 @@ def pairs(k, arr):
 
 
 def binarysearch(arr, left, right, val):
-    if left > right:
-        return -1
-
-    mid = int((left + right) / 2)
-
-    if arr[mid] == val:
-        return mid
-    elif arr[mid] > val:
-        return binarysearch(arr, left, mid - 1, val)
-    else:
-        return binarysearch(arr, mid + 1, right, val)
+    while left <= right:
+        mid = int((left + right) / 2);
+        
+        if arr[mid] == val:
+            return mid
+        elif arr[mid] > val:
+            right = mid - 1
+        else:
+            left = mid + 1
+    
+    return -1
 
 
 if __name__ == '__main__':

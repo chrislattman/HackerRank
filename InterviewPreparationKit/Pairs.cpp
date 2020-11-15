@@ -6,21 +6,23 @@ using namespace std;
 vector<string> split_string(string);
 
 int binarysearch(vector<int> arr, int left, int right, int val) {
-    if (left > right) {
-        return -1;
-    }
+    int mid;
 
-    int mid = (left + right) / 2;
-
-    if (arr[mid] == val) {
-        return mid;
+    while (left <= right) {
+        mid = (left + right) / 2;
+        
+        if (arr[mid] == val) {
+            return mid;
+        }
+        else if (arr[mid] > val) {
+            right = mid - 1;
+        }
+        else {
+            left = mid + 1;
+        }
     }
-    else if (arr[mid] > val) {
-        return binarysearch(arr, left, mid - 1, val);
-    }
-    else {
-        return binarysearch(arr, mid + 1, right, val);
-    }
+    
+    return -1;
 }
 
 // Complete the pairs function below.

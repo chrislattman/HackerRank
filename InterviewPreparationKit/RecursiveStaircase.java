@@ -15,20 +15,19 @@ public class Solution {
             return n;
         }
 
-        int[] array = new int[3];
-        array[0] = 1;
-        array[1] = 2;
-        array[2] = 4;
+        int a = 1;
+        int b = 2;
+        int c = 4;
         int current;
 
         for (int i = 3; i < n; i++) {
-            current = array[2] + array[1] + array[0];
-            array[0] = array[1];
-            array[1] = array[2];
-            array[2] = current;
+            current = a + b + c;
+            a = b;
+            b = c;
+            c = current;
         }
         
-        return array[2];
+        return c;
     }
 
     private static final Scanner scanner = new Scanner(System.in);

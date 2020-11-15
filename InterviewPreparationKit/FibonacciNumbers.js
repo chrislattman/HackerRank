@@ -19,6 +19,16 @@ function fibonacci(n) {
     if (n < 2) {
         return n;
     }
+
+    let a = 1;
+    let b = 1;
+    let current;
+
+    for (let i = 2; i < n; i++) {
+        current = a + b;
+        a = b;
+        b = current;
+    }
     
-    return fibonacci(n - 1) + fibonacci(n - 2);
+    return b;
 }

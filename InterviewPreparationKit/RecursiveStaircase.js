@@ -30,20 +30,19 @@ function stepPerms(n) {
         return n;
     }
 
-    let array = new Int32Array(3);
-    array[0] = 1;
-    array[1] = 2;
-    array[2] = 4;
+    let a = 1;
+    let b = 2;
+    let c = 4;
     let current;
 
     for (let i = 3; i < n; i++) {
-        current = array[2] + array[1] + array[0];
-        array[0] = array[1];
-        array[1] = array[2];
-        array[2] = current;
+        current = a + b + c;
+        a = b;
+        b = c;
+        c = current;
     }
     
-    return array[2];
+    return c;
 }
 
 function main() {

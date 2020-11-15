@@ -7,10 +7,19 @@ public class Solution {
         if (n < 2) {
             return n;
         }
-        
-        return fibonacci(n - 1) + fibonacci(n - 2);
-    }
 
+        int a = 1;
+        int b = 1;
+        int current;
+
+        for (int i = 2; i < n; i++) {
+            current = a + b;
+            a = b;
+            b = current;
+        }
+        
+        return b;
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

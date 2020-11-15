@@ -5,9 +5,19 @@ int fibonacci(int n) {
     if (n < 2) {
         return n;
     }
+
+    int a = 1;
+    int b = 1;
+    int current;
+
+    for (int i = 2; i < n; i++) {
+        current = a + b;
+        a = b;
+        b = current;
+    }
     
-    return fibonacci(n - 1) + fibonacci(n - 2);
-};
+    return b;
+}
 
 int main() {
     int n;

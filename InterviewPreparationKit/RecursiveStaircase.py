@@ -11,17 +11,17 @@ def stepPerms(n):
     if n < 3:
         return n
 
-    array = []
-    array.append(1)
-    array.append(2)
-    array.append(4)
-    for i in range(3, n):
-        current = array[2] + array[1] + array[0]
-        array[0] = array[1]
-        array[1] = array[2]
-        array[2] = current
+    a = 1
+    b = 2
+    c = 4
 
-    return array[2]
+    for i in range(3, n):
+        current = a + b + c
+        a = b
+        b = c
+        c = current
+
+    return c
 
 
 if __name__ == '__main__':
