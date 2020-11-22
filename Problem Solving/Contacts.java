@@ -38,7 +38,6 @@ public class Solution {
             }
             
             char current = s.charAt(index);
-            int charCode = getCharIndex(current);
             Node child = getNode(current);
             if (child == null) {
                 child = new Node();
