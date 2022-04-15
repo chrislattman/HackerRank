@@ -10,8 +10,9 @@ int minimumSwaps(vector<int> arr) {
     int swaps = 0;
     int index = 0;
     int current_value = 1;
-    
-    while (current_value < arr.size()) {
+
+    int arr_size = (int)arr.size();
+    while (current_value < arr_size) {
         int arr_value = arr[index];
         while (arr_value != current_value) {
             index++;
@@ -25,7 +26,7 @@ int minimumSwaps(vector<int> arr) {
         current_value++;
         index = arr_value;
     }
-    
+
     return swaps;
 }
 

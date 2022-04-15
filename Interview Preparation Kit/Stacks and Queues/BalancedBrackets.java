@@ -13,7 +13,8 @@ public class Solution {
     static String isBalanced(String s) {
         Stack<Character> stack = new Stack<>();
 
-        for (int i = 0; i < s.length(); i++) {
+        int s_len = s.length();
+        for (int i = 0; i < s_len; i++) {
             char bracket = s.charAt(i);
             if (bracket == '(' || bracket == '{' || bracket == '[') {
                 stack.push(bracket);
@@ -42,7 +43,7 @@ public class Solution {
         if (stack.isEmpty()) {
             return "YES";
         }
-        
+
         return "NO";
     }
 

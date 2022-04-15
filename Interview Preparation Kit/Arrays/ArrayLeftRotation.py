@@ -9,9 +9,10 @@ import sys
 # Complete the rotLeft function below.
 def rotLeft(a, d):
     result = []
+    a_len = len(a)
 
-    for i in range(len(a)):
-        result.append(a[(i + d) % len(a)])
+    for i in range(a_len):
+        result.append(a[(i + d) % a_len])
 
     return result
 

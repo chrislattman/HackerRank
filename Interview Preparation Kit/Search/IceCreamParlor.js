@@ -26,11 +26,11 @@ function readLine() {
 // Complete the whatFlavors function below.
 function whatFlavors(cost, money) {
     let map = new Map();
-    
+
     for (let i = 0; i < cost.length; i++) {
         map.set(cost[i], i);
     }
-    
+
     for (let j = 0; j < cost.length; j++) {
         let first_price = cost[j];
         let second_price = money - first_price;

@@ -52,14 +52,14 @@ def print_doubly_linked_list(node, sep, fptr):
 def sortedInsert(head, data):
     newNode = DoublyLinkedListNode(data)
     current = head
-    
+
     while current.data <= data:
         if current.next is None:
             current.next = newNode
             newNode.prev = current
             return head
         current = current.next
-    
+
     newNode.next = current
     if current == head:
         current.prev = newNode
@@ -68,7 +68,7 @@ def sortedInsert(head, data):
         current.prev.next = newNode
         newNode.prev = current.prev
         current.prev = newNode
-    
+
     return head
 
 

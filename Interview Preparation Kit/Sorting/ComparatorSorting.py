@@ -28,7 +28,7 @@ for i in range(n):
     score = int(score)
     player = Player(name, score)
     data.append(player)
-    
+
 data = sorted(data, key=cmp_to_key(Player.comparator))
 for i in data:
     print(i.name, i.score)

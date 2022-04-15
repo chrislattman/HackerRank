@@ -26,11 +26,12 @@ function readLine() {
 }
 
 function search(grid, x, y) {
-    if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length && grid[x][y] == 1) {
+    if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length &&
+        grid[x][y] == 1) {
         grid[x][y] = 0;
-        return 1 + search(grid, x - 1, y) + search(grid, x + 1, y) + 
-                search(grid, x, y - 1) + search(grid, x, y + 1) + 
-                search(grid, x - 1, y - 1) + search(grid, x + 1, y - 1) + 
+        return 1 + search(grid, x - 1, y) + search(grid, x + 1, y) +
+                search(grid, x, y - 1) + search(grid, x, y + 1) +
+                search(grid, x - 1, y - 1) + search(grid, x + 1, y - 1) +
                 search(grid, x - 1, y + 1) + search(grid, x + 1, y + 1);
     }
     return 0;
@@ -39,7 +40,7 @@ function search(grid, x, y) {
 // Complete the maxRegion function below.
 function maxRegion(grid) {
     let largest = 0;
-    
+
     for (let x = 0; x < grid.length; x++) {
         for (let y = 0; y < grid[0].length; y++) {
             if (grid[x][y] == 1) {
@@ -50,7 +51,7 @@ function maxRegion(grid) {
             }
         }
     }
-    
+
     return largest;
 }
 

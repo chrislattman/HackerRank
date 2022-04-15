@@ -10,7 +10,7 @@ public class Solution {
         Stack<T> stackNewestOnTop = new Stack<T>();
         Stack<T> stackOldestOnTop = new Stack<T>();
 
-        public void enqueue(T value) { // Push onto newest stack
+        public void enqueue(T value) {
             stackNewestOnTop.push(value);
         }
 
@@ -30,7 +30,7 @@ public class Solution {
                     stackOldestOnTop.push(stackNewestOnTop.pop());
                 }
             }
-            
+
             return stackOldestOnTop.pop();
         }
     }

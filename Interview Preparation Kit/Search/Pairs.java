@@ -14,7 +14,6 @@ public class Solution {
 
         while (left <= right) {
             mid = (left + right) / 2;
-            
             if (arr[mid] == val) {
                 return mid;
             }
@@ -25,7 +24,7 @@ public class Solution {
                 left = mid + 1;
             }
         }
-        
+
         return -1;
     }
 
@@ -34,8 +33,9 @@ public class Solution {
         Arrays.sort(arr);
         int result = 0;
 
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (binarysearch(arr, 0, arr.length - 1, arr[i] + k) >= 0) {
+        int edge = arr.length - 1;
+        for (int i = 0; i < edge; i++) {
+            if (binarysearch(arr, 0, edge, arr[i] + k) >= 0) {
                 result++;
             }
         }

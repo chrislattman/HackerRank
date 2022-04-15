@@ -10,7 +10,8 @@ int luckBalance(int k, vector<vector<int>> contests) {
     int balance = 0;
     vector<int> important;
 
-    for (int i = 0; i < contests.size(); i++) {
+    int contests_rows = (int)contests.size();
+    for (int i = 0; i < contests_rows; i++) {
         if (contests[i][1] == 0) {
             balance += contests[i][0];
         }
@@ -21,17 +22,19 @@ int luckBalance(int k, vector<vector<int>> contests) {
 
     sort(important.begin(), important.end());
 
-    if (important.size() > k) {
-        for (int j = important.size() - k; j < important.size(); j++) {
+    int important_size = (int)important.size();
+    if (important_size > k) {
+        int midpoint = important_size - k;
+        for (int j = midpoint; j < important_size; j++) {
             balance += important[j];
         }
-        
-        for (int m = 0; m < important.size() - k; m++) {
+
+        for (int m = 0; m < midpoint; m++) {
             balance -= important[m];
         }
     }
     else {
-        for (int p = 0; p < important.size(); p++) {
+        for (int p = 0; p < important_size; p++) {
             balance += important[p];
         }
     }

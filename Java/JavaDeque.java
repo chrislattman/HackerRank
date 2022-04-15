@@ -9,7 +9,7 @@ public class test {
         int n = in.nextInt();
         int m = in.nextInt();
         int max = 0;
-        
+
         for (int i = 0; i < n; i++) {
             int num = in.nextInt();
             deque.add(num);
@@ -25,7 +25,7 @@ public class test {
             }
         }
         in.close();
-        
+
         System.out.println(max);
     }
 }

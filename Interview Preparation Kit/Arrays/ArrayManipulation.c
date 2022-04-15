@@ -16,18 +16,18 @@ char** split_string(char*);
 long arrayManipulation(int n, int queries_rows, int queries_columns, int** queries) {
     long largest = 0;
     long* array = (long*) calloc(n, sizeof(long));
-    
+
     for (int i = 0; i < queries_rows; i++) {
         int a = queries[i][0];
         int b = queries[i][1];
         long k = (long) queries[i][2];
-        
+
         array[a - 1] += k;
         if (b < n) {
             array[b] -= k;
         }
     }
-    
+
     long curr_largest = 0;
     for (int j = 0; j < n; j++) {
         curr_largest += array[j];
@@ -36,7 +36,7 @@ long arrayManipulation(int n, int queries_rows, int queries_columns, int** queri
         }
     }
     free(array);
-    
+
     return largest;
 }
 

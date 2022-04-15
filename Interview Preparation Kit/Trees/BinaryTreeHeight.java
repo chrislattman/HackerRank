@@ -6,7 +6,7 @@ class Node {
     Node left;
     Node right;
     int data;
-    
+
     Node(int data) {
         this.data = data;
         left = null;
@@ -17,7 +17,7 @@ class Node {
 class Solution {
 
     /*
-    class Node 
+    class Node
         int data;
         Node left;
         Node right;
@@ -64,5 +64,5 @@ class Solution {
         scan.close();
         int height = height(root);
         System.out.println(height);
-    }   
+    }
 }

@@ -11,7 +11,8 @@ def luckBalance(k, contests):
     balance = 0
     important = []
 
-    for i in range(len(contests)):
+    contests_rows = len(contests)
+    for i in range(contests_rows):
         if contests[i][1] == 0:
             balance += contests[i][0]
         else:
@@ -19,14 +20,16 @@ def luckBalance(k, contests):
 
     important.sort()
 
-    if len(important) > k:
-        for j in range(len(important) - k, len(important)):
+    important_size = len(important)
+    if important_size > k:
+        midpoint = important_size - k
+        for j in range(midpoint, important_size):
             balance += important[j]
 
-        for m in range(len(important) - k):
+        for m in range(midpoint):
             balance -= important[m]
     else:
-        for p in range(len(important)):
+        for p in range(important_size):
             balance += important[p]
 
     return balance

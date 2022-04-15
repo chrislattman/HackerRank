@@ -28,17 +28,17 @@ function freqQuery(queries) {
     let output = [];
     let map = new Map();
     let frequencies = new Map();
-    
+
     for (let i = 0; i < queries.length; i++) {
         let queryType = queries[i][0];
         let data = queries[i][1];
-        
+
         if (queryType == 1) {
             if (map.has(data)) {
                 let old_frequency_key = map.get(data);
                 let new_frequency_key = old_frequency_key + 1;
                 map.set(data, new_frequency_key);
-                
+
                 let old_frequency_value = frequencies.get(old_frequency_key);
                 frequencies.set(old_frequency_key, old_frequency_value - 1);
 
@@ -70,7 +70,7 @@ function freqQuery(queries) {
                 frequencies.set(old_frequency_key, old_frequency_value - 1);
 
                 if (frequencies.has(new_frequency_key)) {
-                    frequencies.set(new_frequency_key, 
+                    frequencies.set(new_frequency_key,
                         frequencies.get(new_frequency_key) + 1);
                 }
                 else {
@@ -93,7 +93,7 @@ function freqQuery(queries) {
             }
         }
     }
-    
+
     return output;
 }
 

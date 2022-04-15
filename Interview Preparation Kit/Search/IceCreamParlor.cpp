@@ -8,12 +8,13 @@ vector<string> split_string(string);
 // Complete the whatFlavors function below.
 void whatFlavors(vector<int> cost, int money) {
     map<int, int> prices;
+    int cost_size = (int)cost.size();
 
-    for (int i = 0; i < cost.size(); i++) {
+    for (int i = 0; i < cost_size; i++) {
         prices[cost[i]] = i;
     }
 
-    for (int j = 0; j < cost.size(); j++) {
+    for (int j = 0; j < cost_size; j++) {
         int first_price = cost[j];
         int second_price = money - first_price;
         if (prices.count(second_price) > 0 && prices[second_price] != j) {

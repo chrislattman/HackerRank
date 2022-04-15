@@ -14,19 +14,21 @@ char** split_string(char*);
 
 // Complete the superDigit function below.
 int superDigit(char* n, int k) {
-    if (strlen(n) == 1 && k == 1) {
+    int n_len = strlen(n);
+    if (n_len == 1 && k == 1) {
         return atoi(n);
     }
 
     long sum = 0;
-    for (int i = 0; i < strlen(n); i++) {
-        sum += ((long) n[i] - '0') * (long) k;
+    for (int i = 0; i < n_len; i++) {
+        sum += (long)(n[i] - '0') * (long)k;
     }
-    int length = snprintf(NULL, 0, "%ld", sum);
-    char* str = (char*) malloc(length + 1);
-    snprintf(str, length + 1, "%ld", sum);
 
-    return superDigit(str, 1);
+    int length = snprintf(NULL, 0, "%ld", sum);
+    memset(n, 0, n_len);
+    snprintf(n, length + 1, "%ld", sum);
+
+    return superDigit(n, 1);
 }
 
 int main()

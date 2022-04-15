@@ -13,19 +13,19 @@ public class Solution {
     static int jumpingOnClouds(int[] c) {
         int index = 0;
         int jumps = 0;
+        int stop = c.length - 2;
 
-        while (index < c.length - 2) {
+        while (index < stop) {
             if (c[index + 2] == 0) {
                 index += 2;
-                jumps++;
             }
             else {
                 index++;
-                jumps++;
             }
+            jumps++;
         }
-        
-        if (index == c.length - 2) {
+
+        if (index == stop) {
             jumps++;
         }
 

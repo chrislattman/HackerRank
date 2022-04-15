@@ -12,7 +12,8 @@ def maximumToys(prices, k):
     toys = 0
     total = 0
 
-    for i in range(len(prices)):
+    prices_count = len(prices)
+    for i in range(prices_count):
         total += prices[i]
         if total <= k:
             toys += 1

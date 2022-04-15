@@ -35,7 +35,7 @@ public class Solution {
 
         Player[] player = new Player[n];
         Checker checker = new Checker();
-        
+
         for(int i = 0; i < n; i++){
             player[i] = new Player(scan.next(), scan.nextInt());
         }

@@ -11,13 +11,13 @@ public class Solution {
     public static class Receipt {
         int time;
         int customer;
-        
+
         public Receipt(int time, int customer) {
             this.time = time;
             this.customer = customer;
         }
     }
-    
+
     public static class Sorter implements Comparator<Receipt> {
         public int compare(Receipt r1, Receipt r2) {
             if (r1.time > r2.time) {
@@ -42,18 +42,18 @@ public class Solution {
     static int[] jimOrders(int[][] orders) {
         Receipt[] receipts = new Receipt[orders.length];
         Sorter sorter = new Sorter();
-        
+
         for (int i = 0; i < orders.length; i++) {
             int time = orders[i][0] + orders[i][1];
             receipts[i] = new Receipt(time, i + 1);
         }
-        
+
         Arrays.sort(receipts, sorter);
         int[] result = new int[receipts.length];
         for (int i = 0; i < receipts.length; i++) {
             result[i] = receipts[i].customer;
         }
-        
+
         return result;
     }
 

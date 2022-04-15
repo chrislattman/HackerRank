@@ -28,7 +28,7 @@ function countTriplets(arr, r) {
     let first = new Map();
     let second = new Map();
     let triplets = 0;
-    
+
     for (let i = 0; i < arr.length; i++) {
         let current = arr[i];
         if (current % r == 0) {
@@ -45,7 +45,7 @@ function countTriplets(arr, r) {
                 }
             }
         }
-        
+
         if (first.has(current)) {
             first.set(current, first.get(current) + 1);
         }
@@ -53,7 +53,7 @@ function countTriplets(arr, r) {
             first.set(current, 1);
         }
     }
-    
+
     return triplets;
 }
 

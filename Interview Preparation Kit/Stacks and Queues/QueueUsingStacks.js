@@ -4,28 +4,28 @@ const MyQueue = class {
         this.stackNewestOnTop = []
         this.stackOldestOnTop = []
     }
-    
+
     enqueue(value) {
         this.stackNewestOnTop.push(value);
     }
-    
+
     peek() {
         if (this.stackOldestOnTop.length == 0) {
             while (this.stackNewestOnTop.length > 0) {
                 this.stackOldestOnTop.push(this.stackNewestOnTop.pop());
             }
         }
-        
+
         return this.stackOldestOnTop[this.stackOldestOnTop.length - 1];
     }
-    
+
     dequeue() {
         if (this.stackOldestOnTop.length == 0) {
             while (this.stackNewestOnTop.length > 0) {
                 this.stackOldestOnTop.push(this.stackNewestOnTop.pop());
             }
         }
-        
+
         return this.stackOldestOnTop.pop();
     }
 };
@@ -34,7 +34,7 @@ const MyQueue = class {
 function processData(input) {
     let queue = new MyQueue();
     let n = parseInt(input[0]);
-    
+
     for (let i = 1; i <= n; i++) {
         let array = input[i].split(' ');
         let operation = array[0];
@@ -48,7 +48,7 @@ function processData(input) {
             console.log(queue.peek());
         }
     }
-} 
+}
 
 process.stdin.resume();
 process.stdin.setEncoding("ascii");
@@ -61,6 +61,6 @@ process.stdin.on("end", function () {
     _input = _input.replace(/\s*$/, '')
         .split('\n')
         .map(str => str.replace(/\s*$/, ''));
-        
+
     processData(_input);
 });

@@ -28,7 +28,7 @@ public class Solution {
                     int old_frequency_key = map.get(data);
                     int new_frequency_key = old_frequency_key + 1;
                     map.put(data, new_frequency_key);
-                    
+
                     int old_frequency_value = frequencies.get(old_frequency_key);
                     frequencies.put(old_frequency_key, old_frequency_value - 1);
 
@@ -60,7 +60,7 @@ public class Solution {
                     frequencies.put(old_frequency_key, old_frequency_value - 1);
 
                     if (frequencies.containsKey(new_frequency_key)) {
-                        frequencies.put(new_frequency_key, 
+                        frequencies.put(new_frequency_key,
                             frequencies.get(new_frequency_key) + 1);
                     }
                     else {

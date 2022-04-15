@@ -14,7 +14,8 @@ public class Solution {
         HashMap<Character, Integer> a_map = new HashMap<>();
         HashMap<Character, Integer> b_map = new HashMap<>();
 
-        for (int i = 0; i < a.length(); i++) {
+        int a_len = a.length();
+        for (int i = 0; i < a_len; i++) {
             char letter = a.charAt(i);
             if (a_map.containsKey(letter)) {
                 a_map.put(letter, a_map.get(letter) + 1);
@@ -24,7 +25,8 @@ public class Solution {
             }
         }
 
-        for (int j = 0; j < b.length(); j++) {
+        int b_len = b.length();
+        for (int j = 0; j < b_len; j++) {
             char letter = b.charAt(j);
             if (b_map.containsKey(letter)) {
                 b_map.put(letter, b_map.get(letter) + 1);

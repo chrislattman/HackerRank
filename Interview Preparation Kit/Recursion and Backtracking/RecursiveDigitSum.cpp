@@ -7,13 +7,14 @@ vector<string> split_string(string);
 
 // Complete the superDigit function below.
 int superDigit(string n, int k) {
-    if (n.length() == 1 && k == 1) {
+    int n_len = (int)n.length();
+    if (n_len == 1 && k == 1) {
         return stoi(n);
     }
 
     long sum = 0;
-    for (int i = 0; i < n.length(); i++) {
-        sum += ((long) n[i] - '0') * (long) k;
+    for (int i = 0; i < n_len; i++) {
+        sum += (long)(n[i] - '0') * (long)k;
     }
 
     return superDigit(to_string(sum), 1);

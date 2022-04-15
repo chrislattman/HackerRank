@@ -41,7 +41,7 @@ class RollingMedianHeaps {
     private:
         max_heap<int> maxHeap;
         min_heap<int> minHeap;
-        
+
         void balanceHeaps() {
             if (maxHeap.size() < minHeap.size()) {
                 maxHeap.push(minHeap.top());
@@ -52,7 +52,7 @@ class RollingMedianHeaps {
                 maxHeap.pop();
             }
         }
-        
+
     public:
         double getMedian() {
             int size = minHeap.size() + maxHeap.size();
@@ -61,7 +61,7 @@ class RollingMedianHeaps {
             }
             return (double) maxHeap.top();
         }
-        
+
         void add(int number) {
             if (maxHeap.size() == 0 || number <= maxHeap.top()) {
                 maxHeap.push(number);
@@ -71,7 +71,7 @@ class RollingMedianHeaps {
             }
             balanceHeaps();
         }
-        
+
         void remove(int number) {
             if (!maxHeap.remove(number)) {
                 minHeap.remove(number);
@@ -84,7 +84,7 @@ class RollingMedianHeaps {
 int activityNotifications(vector<int> expenditure, int d) {
     int notifications = 0;
     RollingMedianHeaps heaps;
-    
+
     for (int i = 0; i < expenditure.size(); i++) {
         if (i >= d) {
             if ((double) expenditure[i] >= 2 * heaps.getMedian()) {
@@ -94,7 +94,7 @@ int activityNotifications(vector<int> expenditure, int d) {
         }
         heaps.add(expenditure[i]);
     }
-    
+
     return notifications;
 }
 

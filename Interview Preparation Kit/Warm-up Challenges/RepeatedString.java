@@ -17,7 +17,7 @@ public class Solution {
 
         long aCount = 0L;
         long aCountRemainder = 0L;
-        for (int i = 0; i < s.length(); i++) {
+        for (long i = 0; i < stringLength; i++) {
             if (s.charAt(i) == 'a') {
                 if (i < remainder) {
                     aCountRemainder++;

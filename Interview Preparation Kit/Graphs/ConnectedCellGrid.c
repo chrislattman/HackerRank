@@ -13,15 +13,16 @@ char* readline();
 char** split_string(char*);
 
 int search(int** grid, int grid_rows, int grid_columns, int x, int y) {
-    if (x >= 0 && y >= 0 && x < grid_rows && y < grid_columns && grid[x][y] == 1) {
+    if (x >= 0 && y >= 0 && x < grid_rows && y < grid_columns &&
+        grid[x][y] == 1) {
         grid[x][y] = 0;
-        return 1 + search(grid, grid_rows, grid_columns, x - 1, y) + 
-                search(grid, grid_rows, grid_columns, x + 1, y) + 
-                search(grid, grid_rows, grid_columns, x, y - 1) + 
-                search(grid, grid_rows, grid_columns, x, y + 1) + 
-                search(grid, grid_rows, grid_columns, x - 1, y - 1) + 
-                search(grid, grid_rows, grid_columns, x + 1, y - 1) + 
-                search(grid, grid_rows, grid_columns, x - 1, y + 1) + 
+        return 1 + search(grid, grid_rows, grid_columns, x - 1, y) +
+                search(grid, grid_rows, grid_columns, x + 1, y) +
+                search(grid, grid_rows, grid_columns, x, y - 1) +
+                search(grid, grid_rows, grid_columns, x, y + 1) +
+                search(grid, grid_rows, grid_columns, x - 1, y - 1) +
+                search(grid, grid_rows, grid_columns, x + 1, y - 1) +
+                search(grid, grid_rows, grid_columns, x - 1, y + 1) +
                 search(grid, grid_rows, grid_columns, x + 1, y + 1);
     }
     return 0;
@@ -30,7 +31,7 @@ int search(int** grid, int grid_rows, int grid_columns, int x, int y) {
 // Complete the maxRegion function below.
 int maxRegion(int grid_rows, int grid_columns, int** grid) {
     int largest = 0;
-    
+
     for (int x = 0; x < grid_rows; x++) {
         for (int y = 0; y < grid_columns; y++) {
             if (grid[x][y] == 1) {
@@ -41,7 +42,7 @@ int maxRegion(int grid_rows, int grid_columns, int** grid) {
             }
         }
     }
-    
+
     return largest;
 }
 

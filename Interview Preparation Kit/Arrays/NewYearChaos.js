@@ -30,32 +30,34 @@ function minimumBribes(q) {
     let lastSortedIndex = -1;
     let too_chaotic = false;
     let bribeMap = new Map();
-    
-    while (index < q.length - 1) {
-        if (q[index] > q[index + 1]) {
-            if (bribeMap.has(q[index]) && bribeMap.get(q[index]) >= 2) {
+
+    let stop = q.length - 1;
+    while (index < stop) {
+        let current = q[index];
+        if (current > q[index + 1]) {
+            if (bribeMap.has(current) && bribeMap.get(current) >= 2) {
                 console.log("Too chaotic");
                 too_chaotic = true;
                 break;
             }
-            if (!bribeMap.has(q[index])) {
-                bribeMap.set(q[index], 0);
+            if (!bribeMap.has(current)) {
+                bribeMap.set(current, 0);
             }
-            bribeMap.set(q[index], bribeMap.get(q[index]) + 1);
-            
+            bribeMap.set(current, bribeMap.get(current) + 1);
+
             let temp = q[index];
             q[index] = q[index + 1];
             q[index + 1] = temp;
-            
+
             swaps++;
             index = lastSortedIndex;
         }
-        else if (q[index] == index + 1) {
+        else if (current == index + 1) {
             lastSortedIndex++;
         }
         index++;
     }
-    
+
     if (!too_chaotic) {
         console.log(swaps);
     }

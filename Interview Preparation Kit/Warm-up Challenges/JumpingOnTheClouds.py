@@ -10,16 +10,16 @@ import sys
 def jumpingOnClouds(c):
     index = 0
     jumps = 0
+    stop = len(c) - 2
 
-    while index < len(c) - 2:
+    while index < stop:
         if c[index + 2] == 0:
             index += 2
-            jumps += 1
         else:
             index += 1
-            jumps += 1
+        jumps += 1
 
-    if index == len(c) - 2:
+    if index == stop:
         jumps += 1
 
     return jumps

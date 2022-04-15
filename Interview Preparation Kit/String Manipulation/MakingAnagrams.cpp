@@ -8,7 +8,8 @@ int makeAnagram(string a, string b) {
     map<char, int> a_map;
     map<char, int> b_map;
 
-    for (int i = 0; i < a.length(); i++) {
+    int a_len = (int)a.length();
+    for (int i = 0; i < a_len; i++) {
         char letter = a[i];
         if (a_map.count(letter) > 0) {
             a_map[letter] += 1;
@@ -18,7 +19,8 @@ int makeAnagram(string a, string b) {
         }
     }
 
-    for (int j = 0; j < b.length(); j++) {
+    int b_len = (int)b.length();
+    for (int j = 0; j < b_len; j++) {
         char letter = b[j];
         if (b_map.count(letter) > 0) {
             b_map[letter] += 1;

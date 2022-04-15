@@ -71,7 +71,7 @@ public class Solution {
     static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) {
         DoublyLinkedListNode newNode = new DoublyLinkedListNode(data);
         DoublyLinkedListNode current = head;
-        
+
         while (current.data <= data) {
             if (current.next == null) {
                 current.next = newNode;
@@ -80,7 +80,7 @@ public class Solution {
             }
             current = current.next;
         }
-        
+
         newNode.next = current;
         if (current == head) {
             current.prev = newNode;

@@ -96,7 +96,7 @@ DoublyLinkedListNode* sortedInsert(DoublyLinkedListNode* head, int data) {
         newNode->prev = current->prev;
         current->prev = newNode;
     }
-    
+
     return head;
 }
 

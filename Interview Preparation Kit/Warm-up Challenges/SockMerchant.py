@@ -17,7 +17,7 @@ def sockMerchant(n, ar):
             pairs += 1
         else:
             socks.add(ar[i])
-    
+
     return pairs
 
 if __name__ == '__main__':

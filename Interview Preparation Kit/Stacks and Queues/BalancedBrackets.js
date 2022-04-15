@@ -28,7 +28,7 @@ function readLine() {
 // Complete the isBalanced function below.
 function isBalanced(s) {
     let stack = []
-    
+
     for (let i = 0; i < s.length; i++) {
         let bracket = s[i];
         if (bracket == '(' || bracket == '{' || bracket == '[') {
@@ -54,11 +54,11 @@ function isBalanced(s) {
             }
         }
     }
-    
+
     if (stack.length == 0) {
         return "YES";
     }
-    
+
     return "NO";
 }
 

@@ -8,12 +8,13 @@ import sys
 
 # Complete the isValid function below.
 def isValid(s):
-    if len(s) < 2:
+    s_len = len(s)
+    if s_len < 2:
         return "YES"
 
     hashtable = {}
-    
-    for i in range(len(s)):
+
+    for i in range(s_len):
         current = s[i]
         if current in hashtable:
             hashtable[current] += 1
@@ -41,9 +42,10 @@ def isValid(s):
 
     if highestFrequency == lowestFrequency:
         return "YES"
-    if highestFrequency * highestFrequencyCount == len(s) - 1 and lowestFrequency == 1:
+    if (highestFrequency * highestFrequencyCount == s_len - 1 and
+        lowestFrequency == 1):
         return "YES"
-    if (lowestFrequency * lowestFrequencyCount + highestFrequency == len(s) and
+    if (lowestFrequency * lowestFrequencyCount + highestFrequency == s_len and
         highestFrequency - 1 == lowestFrequency):
         return "YES"
 

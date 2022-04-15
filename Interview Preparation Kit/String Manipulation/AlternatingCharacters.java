@@ -14,7 +14,8 @@ public class Solution {
         char last = s.charAt(0);
         StringBuilder builder = new StringBuilder(last + "");
 
-        for (int i = 1; i < s.length(); i++) {
+        int s_len = s.length();
+        for (int i = 1; i < s_len; i++) {
             char current = s.charAt(i);
             if (current != last) {
                 builder.append(current);
@@ -22,7 +23,7 @@ public class Solution {
             }
         }
 
-        return s.length() - builder.length();
+        return s_len - builder.length();
     }
 
     private static final Scanner scanner = new Scanner(System.in);

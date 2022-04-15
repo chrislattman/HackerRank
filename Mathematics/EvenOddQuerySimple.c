@@ -5,7 +5,7 @@
 
 int main() {
     int N, q, x, y;
-    
+
     scanf("%d", &N);
     int * arr = malloc(sizeof(int) * N);
     for (int i = 0; i < N; i++) {
@@ -28,6 +28,6 @@ int main() {
             printf("Odd\n");
         }
     }
-    
+
     return 0;
 }

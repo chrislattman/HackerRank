@@ -29,7 +29,7 @@ function readLine() {
 function alternatingCharacters(s) {
     let last = s[0];
     let list = [last];
-    
+
     for (let i = 0; i < s.length; i++) {
         let current = s[i];
         if (current != last) {
@@ -37,7 +37,7 @@ function alternatingCharacters(s) {
             last = current;
         }
     }
-    
+
     return s.length - list.length;
 }
 

@@ -14,7 +14,7 @@ public class Solution {
         int m = s1.length();
         int n = s2.length();
         int[][] lcs = new int[m + 1][n + 1];
-        
+
         for (int i = 0; i <= m; i++) {
             for (int j = 0; j <= n; j++) {
                 if (i == 0 || j == 0) {
@@ -28,7 +28,7 @@ public class Solution {
                 }
             }
         }
-        
+
         return lcs[m][n];
     }
 

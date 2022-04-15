@@ -13,15 +13,15 @@ public class Solution {
     static String abbreviation(String a, String b) {
         int m = a.length();
         int n = b.length();
-        
+
         boolean[][] valid = new boolean[m + 1][n + 1];
         valid[0][0] = true;
-        
+
         for (int i = 1; i <= m; i++) {
             int end = Math.min(i, n);
             for (int j = 0; j <= end; j++) {
                 char a_char = a.charAt(i - 1);
-                
+
                 if (j == 0) {
                     if (Character.isLowerCase(a_char)) {
                         valid[i][j] = valid[i - 1][j];
@@ -29,7 +29,7 @@ public class Solution {
                 }
                 else {
                     char b_char = b.charAt(j - 1);
-                    
+
                     if (a_char == b_char) {
                         valid[i][j] = valid[i - 1][j - 1];
                     }
@@ -42,7 +42,7 @@ public class Solution {
                 }
             }
         }
-        
+
         if (valid[m][n]) {
             return "YES";
         }

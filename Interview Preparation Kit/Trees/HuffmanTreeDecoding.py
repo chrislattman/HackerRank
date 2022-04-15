@@ -12,7 +12,7 @@ class Node:
         global cntr
         self._count = cntr
         cntr = cntr + 1
-        
+
     def __lt__(self, other):
         if self.freq != other.freq:
             return self.freq < other.freq
@@ -21,10 +21,10 @@ class Node:
 def huffman_hidden():#builds the tree and returns root
     q = Queue.PriorityQueue()
 
-    
+
     for key in freq:
         q.put((freq[key], key, Node(freq[key], key) ))
-    
+
     while q.qsize() != 1:
         a = q.get()
         b = q.get()
@@ -32,7 +32,7 @@ def huffman_hidden():#builds the tree and returns root
         obj.left = a[2]
         obj.right = b[2]
         q.put((obj.freq, obj.data, obj ))
-        
+
     root = q.get()
     root = root[2]#contains root object
     return root
@@ -42,7 +42,7 @@ def dfs_hidden(obj, already):
         return
     elif(obj.data != '\0'):
         code_hidden[obj.data] = already
-        
+
     dfs_hidden(obj.right, already + "1")
     dfs_hidden(obj.left, already + "0")
 
@@ -52,7 +52,7 @@ def dfs_hidden(obj, already):
         self.data=data
         self.left = None
         self.right = None
-"""        
+"""
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 def decodeHuff(root, s):
@@ -71,7 +71,7 @@ def decodeHuff(root, s):
             current = root
 
     print(decoded)
-    
+
 
 ip = input()
 freq = {}#maps each character to its frequency

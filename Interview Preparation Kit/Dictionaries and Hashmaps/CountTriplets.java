@@ -18,7 +18,7 @@ public class Solution {
         HashMap<Long, Long> first = new HashMap<>();
         HashMap<Long, Long> second = new HashMap<>();
         long triplets = 0;
-        
+
         for (int i = 0; i < arr.size(); i++) {
             long current = arr.get(i);
             if (current % r == 0) {
@@ -35,7 +35,7 @@ public class Solution {
                     }
                 }
             }
-            
+
             if (first.containsKey(current)) {
                 first.put(current, first.get(current) + 1L);
             }
@@ -43,7 +43,7 @@ public class Solution {
                 first.put(current, 1L);
             }
         }
-        
+
         return triplets;
     }
 

@@ -25,17 +25,18 @@ char* readline();
 char* primality(int n) {
     char* not_prime = "Not prime";
     char* prime = "Prime";
-    
+
     if (n == 1) {
         return not_prime;
     }
-    
-    for (int i = 2; i <= (int) sqrt(n); i++) {
+
+    int root = (int)sqrt((double)n);
+    for (int i = 2; i <= root; i++) {
         if (n % i == 0) {
             return not_prime;
         }
     }
-    
+
     return prime;
 }
 

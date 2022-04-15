@@ -8,9 +8,10 @@ vector<string> split_string(string);
 // Complete the rotLeft function below.
 vector<int> rotLeft(vector<int> a, int d) {
     vector<int> result;
+    int a_len = (int)a.size();
 
-    for (int i = 0; i < a.size(); i++) {
-        result.insert(result.end(), a[(i + d) % a.size()]);
+    for (int i = 0; i < a_len; i++) {
+        result.insert(result.end(), a[(i + d) % a_len]);
     }
 
     return result;

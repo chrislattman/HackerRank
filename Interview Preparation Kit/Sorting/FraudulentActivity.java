@@ -11,12 +11,12 @@ public class Solution {
     static class RollingMedianHeaps {
         private PriorityQueue<Integer> minHeap;
         private PriorityQueue<Integer> maxHeap;
-        
+
         public RollingMedianHeaps() {
             minHeap = new PriorityQueue<>();
             maxHeap = new PriorityQueue<>(Collections.reverseOrder());
         }
-        
+
         public double getMedian() {
             int size = minHeap.size() + maxHeap.size();
             if (size % 2 == 0) {
@@ -24,7 +24,7 @@ public class Solution {
             }
             return (double) maxHeap.peek();
         }
-        
+
         public void add(int number) {
             if (maxHeap.size() == 0 || number <= maxHeap.peek()) {
                 maxHeap.add(number);
@@ -34,7 +34,7 @@ public class Solution {
             }
             balanceHeaps();
         }
-        
+
         public void remove(int number) {
             if (maxHeap.contains(number)) {
                 maxHeap.remove(number);
@@ -44,7 +44,7 @@ public class Solution {
             }
             balanceHeaps();
         }
-        
+
         private void balanceHeaps() {
             if (maxHeap.size() < minHeap.size()) {
                 maxHeap.add(minHeap.poll());
@@ -59,7 +59,7 @@ public class Solution {
     static int activityNotifications(int[] expenditure, int d) {
         int notifications = 0;
         RollingMedianHeaps heaps = new RollingMedianHeaps();
-        
+
         for (int i = 0; i < expenditure.length; i++) {
             if (i >= d) {
                 if ((double) expenditure[i] >= 2 * heaps.getMedian()) {
@@ -69,7 +69,7 @@ public class Solution {
             }
             heaps.add(expenditure[i]);
         }
-        
+
         return notifications;
     }
 

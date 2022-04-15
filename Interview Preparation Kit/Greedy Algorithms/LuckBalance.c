@@ -15,7 +15,7 @@ char** split_string(char*);
 int compare(const void *a, const void *b) {
     int arg1 = *(const int*) a;
     int arg2 = *(const int*) b;
- 
+
     if (arg1 < arg2) {
         return -1;
     }
@@ -45,11 +45,12 @@ int luckBalance(int k, int contests_rows, int contests_columns, int** contests) 
     qsort(important, importantIndex, sizeof(int), compare);
 
     if (importantIndex > k) {
-        for (int j = importantIndex - k; j < importantIndex; j++) {
+        int midpoint = importantIndex - k;
+        for (int j = midpoint; j < importantIndex; j++) {
             balance += important[j];
         }
-        
-        for (int m = 0; m < importantIndex - k; m++) {
+
+        for (int m = 0; m < midpoint; m++) {
             balance -= important[m];
         }
     }

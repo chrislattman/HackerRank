@@ -11,8 +11,9 @@ def minimumSwaps(arr):
     swaps = 0
     index = 0
     current_value = 1
-    
-    while current_value < len(arr):
+
+    arr_len = len(arr)
+    while current_value < arr_len:
         arr_value = arr[index]
         while arr_value != current_value:
             index = index + 1
@@ -23,7 +24,7 @@ def minimumSwaps(arr):
             swaps = swaps + 1
         current_value = current_value + 1
         index = arr_value
-    
+
     return swaps
 
 

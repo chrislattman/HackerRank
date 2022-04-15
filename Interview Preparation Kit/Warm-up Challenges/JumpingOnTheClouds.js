@@ -29,19 +29,19 @@ function readLine() {
 function jumpingOnClouds(c) {
     let index = 0;
     let jumps = 0;
+    let stop = c.length - 2;
 
-    while (index < c.length - 2) {
+    while (index < stop) {
         if (c[index + 2] == 0) {
             index += 2;
-            jumps++;
         }
         else {
             index++;
-            jumps++;
         }
+        jumps++;
     }
-    
-    if (index == c.length - 2) {
+
+    if (index == stop) {
         jumps++;
     }
 

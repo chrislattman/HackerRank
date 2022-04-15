@@ -32,7 +32,7 @@ function candies(n, arr) {
     up[0] = 1;
     down[n - 1] = 1;
     let result = 0;
-    
+
     for (let i = 1; i < n; i++) {
         if (arr[i] > arr[i - 1]) {
             up[i] = up[i - 1] + 1;
@@ -52,7 +52,7 @@ function candies(n, arr) {
     for (let k = 0; k < n; k++) {
         result += Math.max(up[k], down[k]);
     }
-    
+
     return result;
 }
 

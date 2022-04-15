@@ -44,11 +44,12 @@ function luckBalance(k, contests) {
     });
 
     if (important.length > k) {
-        for (let j = important.length - k; j < important.length; j++) {
+        let midpoint = important.length - k;
+        for (let j = midpoint; j < important.length; j++) {
             balance += important[j];
         }
-        
-        for (let m = 0; m < important.length - k; m++) {
+
+        for (let m = 0; m < midpoint; m++) {
             balance -= important[m];
         }
     }

@@ -30,12 +30,12 @@ function superDigit(n, k) {
     if (n.length == 1 && k == 1) {
         return parseInt(n);
     }
-    
+
     let sum = 0;
     for (let i = 0; i < n.length; i++) {
         sum += parseInt(n[i]) * k;
     }
-    
+
     return superDigit(sum.toString(), 1);
 }
 

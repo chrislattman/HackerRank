@@ -16,7 +16,7 @@ public class Solution {
         up[0] = 1;
         down[n - 1] = 1;
         long result = 0;
-        
+
         for (int i = 1; i < n; i++) {
             if (arr[i] > arr[i - 1]) {
                 up[i] = up[i - 1] + 1;
@@ -36,7 +36,7 @@ public class Solution {
         for (int k = 0; k < n; k++) {
             result += (long) Math.max(up[k], down[k]);
         }
-        
+
         return result;
     }
 

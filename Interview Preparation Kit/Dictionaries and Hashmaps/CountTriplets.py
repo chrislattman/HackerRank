@@ -11,7 +11,7 @@ def countTriplets(arr, r):
     first = {}
     second = {}
     triplets = 0
-    
+
     for i in range(len(arr)):
         current = arr[i]
         if current % r == 0:
@@ -23,12 +23,12 @@ def countTriplets(arr, r):
                     second[current] += first[preceding]
                 else:
                     second[current] = first[preceding]
-        
+
         if current in first:
             first[current] += 1
         else:
             first[current] = 1
-            
+
     return triplets
 
 

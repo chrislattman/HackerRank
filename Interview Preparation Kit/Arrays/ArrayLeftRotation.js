@@ -28,11 +28,11 @@ function readLine() {
 // Complete the rotLeft function below.
 function rotLeft(a, d) {
     let result = new Int32Array(a.length);
-    
+
     for (let i = 0; i < a.length; i++) {
         result[i] = a[(i + d) % a.length];
     }
-    
+
     return result;
 }
 

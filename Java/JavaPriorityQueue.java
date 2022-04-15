@@ -12,21 +12,21 @@ class Student {
     private int id;
     private String name;
     private double cgpa;
-    
+
     public Student(int id, String name, double cgpa) {
         this.id = id;
         this.name = name;
         this.cgpa = cgpa;
     }
-    
+
     public int getID() {
         return id;
     }
-    
+
     public String getName() {
         return name;
     }
-    
+
     public double getCGPA() {
         return cgpa;
     }
@@ -34,7 +34,7 @@ class Student {
 
 class Priorities {
     private PriorityQueue<Student> queue;
-    
+
     public Priorities() {
         queue = new PriorityQueue<Student>(new Comparator<Student>() {
             public int compare(Student s1, Student s2) {
@@ -59,9 +59,10 @@ class Priorities {
             }
         });
     }
-    
+
     public List<Student> getStudents(List<String> events) {
-        for (int i = 0; i < events.size(); i++) {
+        int events_size = events.size();
+        for (int i = 0; i < events_size; i++) {
             String[] details = events.get(i).split(" ");
             if (details[0].equals("ENTER")) {
                 String name = details[1];
@@ -73,12 +74,12 @@ class Priorities {
                 queue.poll();
             }
         }
-        
+
         List<Student> students = new ArrayList<>();
         while (!queue.isEmpty()) {
             students.add(queue.poll());
         }
-        
+
         return students;
     }
 }
@@ -86,18 +87,18 @@ class Priorities {
 public class Solution {
     private final static Scanner scan = new Scanner(System.in);
     private final static Priorities priorities = new Priorities();
-    
+
     public static void main(String[] args) {
-        int totalEvents = Integer.parseInt(scan.nextLine());    
+        int totalEvents = Integer.parseInt(scan.nextLine());
         List<String> events = new ArrayList<>();
-        
+
         while (totalEvents-- != 0) {
             String event = scan.nextLine();
             events.add(event);
         }
-        
+
         List<Student> students = priorities.getStudents(events);
-        
+
         if (students.isEmpty()) {
             System.out.println("EMPTY");
         } else {

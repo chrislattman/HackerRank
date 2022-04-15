@@ -25,17 +25,19 @@ public class Solution {
 
         Collections.sort(important);
 
-        if (important.size() > k) {
-            for (int j = important.size() - k; j < important.size(); j++) {
+        int important_size = important.size();
+        if (important_size > k) {
+            int midpoint = important_size - k;
+            for (int j = midpoint; j < important_size; j++) {
                 balance += important.get(j);
             }
-            
-            for (int m = 0; m < important.size() - k; m++) {
+
+            for (int m = 0; m < midpoint; m++) {
                 balance -= important.get(m);
             }
         }
         else {
-            for (int p = 0; p < important.size(); p++) {
+            for (int p = 0; p < important_size; p++) {
                 balance += important.get(p);
             }
         }

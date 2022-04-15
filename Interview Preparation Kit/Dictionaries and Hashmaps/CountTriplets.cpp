@@ -12,7 +12,7 @@ long countTriplets(vector<long> arr, long r) {
     map<long, long> first;
     map<long, long> second;
     long triplets = 0;
-    
+
     for (int i = 0; i < arr.size(); i++) {
         long current = arr[i];
         if (current % r == 0) {
@@ -29,7 +29,7 @@ long countTriplets(vector<long> arr, long r) {
                 }
             }
         }
-        
+
         if (first.count(current) > 0) {
             first[current] += 1;
         }
@@ -37,7 +37,7 @@ long countTriplets(vector<long> arr, long r) {
             first[current] = 1;
         }
     }
-    
+
     return triplets;
 }
 

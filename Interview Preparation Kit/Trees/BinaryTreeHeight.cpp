@@ -33,7 +33,7 @@ class Solution {
                return root;
            }
         }
-/*The tree node has data, left child and right child 
+/*The tree node has data, left child and right child
 class Node {
     int data;
     Node* left;
@@ -59,10 +59,10 @@ class Node {
 }; //End of Solution
 
 int main() {
-    
+
     Solution myTree;
     Node* root = NULL;
-    
+
     int t;
     int data;
 
@@ -72,7 +72,7 @@ int main() {
         std::cin >> data;
         root = myTree.insert(root, data);
     }
-  
+
     int height = myTree.height(root);
     std::cout << height;
 

@@ -29,7 +29,7 @@ function readLine() {
 function makeAnagram(a, b) {
     let a_map = new Map();
     let b_map = new Map();
-    
+
     for (let i = 0; i < a.length; i++) {
         let letter = a[i];
         if (a_map.has(letter)) {
@@ -39,7 +39,7 @@ function makeAnagram(a, b) {
             a_map.set(letter, 1);
         }
     }
-    
+
     for (let j = 0; j < b.length; j++) {
         let letter = b[j];
         if (b_map.has(letter)) {
@@ -49,7 +49,7 @@ function makeAnagram(a, b) {
             b_map.set(letter, 1);
         }
     }
-    
+
     let removed = 0;
     for (let keyIndex = 0; keyIndex < 26; keyIndex++) {
         let key = String.fromCharCode(keyIndex + 97);

@@ -90,7 +90,7 @@ DoublyLinkedListNode* reverse(DoublyLinkedListNode* head) {
             current = current->prev;
         }
     }
-    
+
     return head;
 }
 

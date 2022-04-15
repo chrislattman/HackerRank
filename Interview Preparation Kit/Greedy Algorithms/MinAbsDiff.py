@@ -11,7 +11,8 @@ def minimumAbsoluteDifference(arr):
     min_diff = float('inf')
     arr.sort()
 
-    for i in range(len(arr) - 1):
+    stop = len(arr) - 1
+    for i in range(stop):
         diff = arr[i + 1] - arr[i]
         if diff < min_diff:
             min_diff = diff

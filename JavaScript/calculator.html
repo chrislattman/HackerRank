@@ -38,7 +38,7 @@
             }
         </style>
     </head>
-    
+
     <body>
         <div id='res' class='result'></div>
         <div id='btns'>
@@ -56,10 +56,10 @@
             /* Parameter 'e' is the click Event */
             function disp(e) {
                 /* Older IE browsers have a srcElement property,
-                but other browsers have a 'target' property; 
+                but other browsers have a 'target' property;
                 Set btn to whichever exists. */
                 var btn = e.target || e.srcElement;
-                
+
                 /* Get the clicked element's innerHTML */
                 document.getElementById("res").innerHTML += document.getElementById(btn.id).innerHTML;
             }
@@ -77,7 +77,7 @@
                 var expression = operand1 + operator + operand2;
                 document.getElementById("res").innerHTML = Math.floor(eval(expression)).toString(2);
             }
-            
+
             /* Add a click event listener that calls action(e) when clicked */
             document.getElementById('btn0').addEventListener('click', disp);
             document.getElementById('btn1').addEventListener('click', disp);

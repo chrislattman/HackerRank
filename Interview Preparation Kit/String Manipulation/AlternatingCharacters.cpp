@@ -8,7 +8,8 @@ int alternatingCharacters(string s) {
     char last = s[0];
     vector<char> list = {last};
 
-    for (int i = 1; i < s.length(); i++) {
+    int s_len = (int)s.length();
+    for (int i = 1; i < s_len; i++) {
         char current = s[i];
         if (current != last) {
             list.insert(list.end(), current);
@@ -16,7 +17,7 @@ int alternatingCharacters(string s) {
         }
     }
 
-    return s.length() - list.size();
+    return s_len - list.size();
 }
 
 int main()

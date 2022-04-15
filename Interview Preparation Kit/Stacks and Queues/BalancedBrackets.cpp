@@ -7,7 +7,8 @@ using namespace std;
 string isBalanced(string s) {
     stack<char> brackets;
 
-    for (int i = 0; i < s.length(); i++) {
+    int s_len = (int)s.length();
+    for (int i = 0; i < s_len; i++) {
         char bracket = s[i];
         if (bracket == '(' || bracket == '{' || bracket == '[') {
             brackets.push(bracket);
@@ -36,7 +37,7 @@ string isBalanced(string s) {
     if (brackets.empty()) {
         return "YES";
     }
-    
+
     return "NO";
 }
 

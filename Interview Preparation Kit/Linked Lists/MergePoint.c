@@ -136,7 +136,7 @@ int main()
 
             insert_node_into_singly_linked_list(&llist1, llist1_item);
         }
-      
+
         SinglyLinkedList* llist2 = malloc(sizeof(SinglyLinkedList));
         llist2->head = NULL;
         llist2->tail = NULL;
@@ -156,22 +156,22 @@ int main()
 
             insert_node_into_singly_linked_list(&llist2, llist2_item);
         }
-      
+
         SinglyLinkedListNode* ptr1 = llist1->head;
         SinglyLinkedListNode* ptr2 = llist2->head;
-      
+
         for (int i = 0; i < llist1_count; i++) {
             if (i < index) {
                 ptr1 = ptr1->next;
             }
         }
-      
+
         for (int i = 0; i < llist2_count; i++) {
             if (i != llist2_count-1) {
                 ptr2 = ptr2->next;
             }
         }
-      
+
         ptr2->next = ptr1;
 
         int result = findMergeNode(llist1->head, llist2->head);

@@ -10,7 +10,6 @@ int binarysearch(vector<int> arr, int left, int right, int val) {
 
     while (left <= right) {
         mid = (left + right) / 2;
-        
         if (arr[mid] == val) {
             return mid;
         }
@@ -21,7 +20,7 @@ int binarysearch(vector<int> arr, int left, int right, int val) {
             left = mid + 1;
         }
     }
-    
+
     return -1;
 }
 
@@ -30,8 +29,9 @@ int pairs(int k, vector<int> arr) {
     sort(arr.begin(), arr.end());
     int result = 0;
 
-    for (int i = 0; i < arr.size() - 1; i++) {
-        if (binarysearch(arr, 0, arr.size() - 1, arr[i] + k) >= 0) {
+    int edge = (int)arr.size() - 1;
+    for (int i = 0; i < edge; i++) {
+        if (binarysearch(arr, 0, edge, arr[i] + k) >= 0) {
             result++;
         }
     }

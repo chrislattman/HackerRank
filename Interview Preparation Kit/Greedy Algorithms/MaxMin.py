@@ -11,7 +11,8 @@ def maxMin(k, arr):
     arr.sort()
     min_diff = float('inf')
 
-    for i in range(len(arr) - k + 1):
+    stop = len(arr) - k + 1
+    for i in range(stop):
         diff = arr[i + k - 1] - arr[i]
         if diff < min_diff:
             min_diff = diff

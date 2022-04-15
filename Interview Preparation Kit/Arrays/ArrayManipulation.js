@@ -29,26 +29,24 @@ function readLine() {
 function arrayManipulation(n, queries) {
     let largest = 0;
     let array = new Int32Array(n);
-    
+
     for (let i = 0; i < queries.length; i++) {
         let a = queries[i][0];
         let b = queries[i][1];
         let k = queries[i][2];
-        
+
         array[a - 1] += k;
         if (b < n) {
             array[b] -= k;
         }
     }
-    
+
     let curr_largest = 0;
     for (let j = 0; j < n; j++) {
         curr_largest += array[j];
-        if (curr_largest > largest) {
-            largest = curr_largest;
-        }
+        largest = Math.max(curr_largest, largest);
     }
-    
+
     return largest;
 }
 

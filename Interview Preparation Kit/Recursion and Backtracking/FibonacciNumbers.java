@@ -17,7 +17,7 @@ public class Solution {
             a = b;
             b = current;
         }
-        
+
         return b;
     }
 

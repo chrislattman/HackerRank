@@ -9,26 +9,25 @@ vector<string> split_string(string);
 long arrayManipulation(int n, vector<vector<int>> queries) {
     long largest = 0;
     vector<long> array(n, 0);
-    
-    for (int i = 0; i < queries.size(); i++) {
+
+    int queries_size = (int)queries.size();
+    for (int i = 0; i < queries_size; i++) {
         int a = queries[i][0];
         int b = queries[i][1];
         long k = (long) queries[i][2];
-        
+
         array[a - 1] += k;
         if (b < n) {
             array[b] -= k;
         }
     }
-    
+
     long curr_largest = 0;
     for (int j = 0; j < n; j++) {
         curr_largest += array[j];
-        if (curr_largest > largest) {
-            largest = curr_largest;
-        }
+        largest = (long)fmax((double)curr_largest, (double)largest);
     }
-    
+
     return largest;
 }
 

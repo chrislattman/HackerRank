@@ -17,7 +17,7 @@ int minimumSwaps(int arr_count, int* arr) {
     int swaps = 0;
     int index = 0;
     int current_value = 1;
-    
+
     while (current_value < arr_count) {
         int arr_value = arr[index];
         while (arr_value != current_value) {
@@ -32,7 +32,7 @@ int minimumSwaps(int arr_count, int* arr) {
         current_value++;
         index = arr_value;
     }
-    
+
     return swaps;
 }
 

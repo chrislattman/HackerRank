@@ -118,7 +118,7 @@ int main()
 
             llist1->insert_node(llist1_item);
         }
-      
+
         SinglyLinkedList* llist2 = new SinglyLinkedList();
 
         int llist2_count;
@@ -132,22 +132,22 @@ int main()
 
             llist2->insert_node(llist2_item);
         }
-      
+
         SinglyLinkedListNode* ptr1 = llist1->head;
         SinglyLinkedListNode* ptr2 = llist2->head;
-      
+
         for (int i = 0; i < llist1_count; i++) {
             if (i < index) {
                 ptr1 = ptr1->next;
             }
         }
-      
+
         for (int i = 0; i < llist2_count; i++) {
             if (i != llist2_count-1) {
                 ptr2 = ptr2->next;
             }
         }
-      
+
         ptr2->next = ptr1;
 
         int result = findMergeNode(llist1->head, llist2->head);

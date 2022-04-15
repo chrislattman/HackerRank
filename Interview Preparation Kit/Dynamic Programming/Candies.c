@@ -18,7 +18,7 @@ long candies(int n, int arr_count, int* arr) {
     up[0] = 1;
     down[n - 1] = 1;
     long result = 0;
-    
+
     for (int i = 1; i < n; i++) {
         if (arr[i] > arr[i - 1]) {
             up[i] = up[i - 1] + 1;
@@ -41,7 +41,7 @@ long candies(int n, int arr_count, int* arr) {
 
     free(up);
     free(down);
-    
+
     return result;
 }
 

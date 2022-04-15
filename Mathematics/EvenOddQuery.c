@@ -28,7 +28,7 @@ FILE* fptr;
 ///////-------------------------/////////
 int solve(int arr_count, int* arr, int queries_rows, int queries_columns, int** queries, int* result_count) {
     int a, i, x, y;
-    
+
     *result_count = queries_rows;
     for (i = 0; i < queries_rows; i++) {
         x = **queries;
@@ -47,7 +47,7 @@ int solve(int arr_count, int* arr, int queries_rows, int queries_columns, int** 
         }
         queries++;
     }
-    
+
     return 0;
 }
 
@@ -103,7 +103,7 @@ int main()
 
     int result_count;
     solve(arr_count, arr, queries_rows, queries_columns, queries, &result_count);
-    
+
     fclose(fptr);
 
     return 0;

@@ -3,17 +3,19 @@
 
 using namespace std;
 
-int search(vector<vector<int>>& grid, int x, int y) {
-    if (x >= 0 && y >= 0 && x < grid.size() && y < grid[0].size() && grid[x][y] == 1) {
+int search(vector<vector<int>>& grid, int grid_rows, int grid_cols, int x,
+    int y) {
+    if (x >= 0 && y >= 0 && x < grid_rows && y < grid_cols &&
+        grid[x][y] == 1) {
         grid[x][y] = 0;
-        return 1 + search(grid, x - 1, y) + 
-                search(grid, x + 1, y) + 
-                search(grid, x, y - 1) + 
-                search(grid, x, y + 1) + 
-                search(grid, x - 1, y - 1) + 
-                search(grid, x + 1, y - 1) + 
-                search(grid, x - 1, y + 1) + 
-                search(grid, x + 1, y + 1);
+        return 1 + search(grid, grid_rows, grid_cols, x - 1, y) +
+                search(grid, grid_rows, grid_cols, x + 1, y) +
+                search(grid, grid_rows, grid_cols, x, y - 1) +
+                search(grid, grid_rows, grid_cols, x, y + 1) +
+                search(grid, grid_rows, grid_cols, x - 1, y - 1) +
+                search(grid, grid_rows, grid_cols, x + 1, y - 1) +
+                search(grid, grid_rows, grid_cols, x - 1, y + 1) +
+                search(grid, grid_rows, grid_cols, x + 1, y + 1);
     }
     return 0;
 }
@@ -21,18 +23,20 @@ int search(vector<vector<int>>& grid, int x, int y) {
 // Complete the maxRegion function below.
 int maxRegion(vector<vector<int>> grid) {
     int largest = 0;
-    
-    for (int x = 0; x < grid.size(); x++) {
-        for (int y = 0; y < grid[0].size(); y++) {
+
+    int grid_rows = (int)grid.size();
+    int grid_cols = (int)grid[0].size();
+    for (int x = 0; x < grid_rows; x++) {
+        for (int y = 0; y < grid_cols; y++) {
             if (grid[x][y] == 1) {
-                int current = search(grid, x, y);
+                int current = search(grid, grid_rows, grid_cols, x, y);
                 if (current > largest) {
                     largest = current;
                 }
             }
         }
     }
-    
+
     return largest;
 }
 

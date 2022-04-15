@@ -8,7 +8,8 @@ int maxMin(int k, vector<int> arr) {
     sort(arr.begin(), arr.end());
     int min_diff = INT_MAX;
 
-    for (int i = 0; i <= arr.size() - k; i++) {
+    int stop = (int)arr.size() - k;
+    for (int i = 0; i <= stop; i++) {
         int diff = arr[i + k - 1] - arr[i];
         if (diff < min_diff) {
             min_diff = diff;

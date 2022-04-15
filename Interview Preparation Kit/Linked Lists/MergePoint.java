@@ -110,7 +110,7 @@ public class Solution {
 
                 llist1.insertNode(llist1Item);
             }
-          
+
             SinglyLinkedList llist2 = new SinglyLinkedList();
 
             int llist2Count = scanner.nextInt();
@@ -122,7 +122,7 @@ public class Solution {
 
                 llist2.insertNode(llist2Item);
             }
-          
+
             SinglyLinkedListNode ptr1 = llist1.head;
             SinglyLinkedListNode ptr2 = llist2.head;
 

@@ -13,12 +13,13 @@ char* readline();
 
 // Complete the alternatingCharacters function below.
 int alternatingCharacters(char* s) {
+    int s_len = (int)strlen(s);
     char last = s[0];
-    char* list = (char*) malloc(sizeof(char) * strlen(s));
+    char* list = (char*) malloc(sizeof(char) * (size_t)s_len);
     list[0] = last;
     int listIndex = 1;
 
-    for (int i = 1; i < strlen(s); i++) {
+    for (int i = 1; i < s_len; i++) {
         char current = s[i];
         if (current != last) {
             list[listIndex] = current;
@@ -27,8 +28,8 @@ int alternatingCharacters(char* s) {
         }
     }
     free(list);
-    
-    return strlen(s) - listIndex;
+
+    return s_len - listIndex;
 }
 
 int main()

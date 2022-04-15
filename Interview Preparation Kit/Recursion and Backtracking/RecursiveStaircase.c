@@ -28,7 +28,7 @@ int stepPerms(int n) {
         b = c;
         c = current;
     }
-    
+
     return c;
 }
 

@@ -7,15 +7,15 @@ using namespace std;
 string abbreviation(string a, string b) {
     int m = a.length();
     int n = b.length();
-    
+
     vector<vector<bool>> valid(m + 1, vector<bool>(n + 1));
     valid[0][0] = true;
-    
+
     for (int i = 1; i <= m; i++) {
         int end = min(i, n);
         for (int j = 0; j <= end; j++) {
             char a_char = a[i - 1];
-            
+
             if (j == 0) {
                 if (islower(a_char)) {
                     valid[i][j] = valid[i - 1][j];
@@ -23,7 +23,7 @@ string abbreviation(string a, string b) {
             }
             else {
                 char b_char = b[j - 1];
-                
+
                 if (a_char == b_char) {
                     valid[i][j] = valid[i - 1][j - 1];
                 }
@@ -36,7 +36,7 @@ string abbreviation(string a, string b) {
             }
         }
     }
-    
+
     if (valid[m][n]) {
         return "YES";
     }

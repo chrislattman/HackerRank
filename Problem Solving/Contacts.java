@@ -9,34 +9,34 @@ public class Solution {
     public static class Node {
         private Node[] children;
         private int size;
-        
+
         public Node() {
             children = new Node[26];
             size = 0;
         }
-        
+
         private int getCharIndex(char c) {
             return c - 'a';
         }
-        
+
         private Node getNode(char c) {
             return children[getCharIndex(c)];
         }
-        
+
         private void setNode(char c, Node node) {
             children[getCharIndex(c)] = node;
         }
-        
+
         public void add(String s) {
             add(s, 0);
         }
-        
+
         private void add(String s, int index) {
             size++;
             if (index == s.length()) {
                 return;
             }
-            
+
             char current = s.charAt(index);
             Node child = getNode(current);
             if (child == null) {
@@ -45,16 +45,16 @@ public class Solution {
             }
             child.add(s, index + 1);
         }
-        
+
         public int findCount(String s) {
             return findCount(s, 0);
         }
-        
+
         private int findCount(String s, int index) {
             if (index == s.length()) {
                 return size;
             }
-            
+
             Node child = getNode(s.charAt(index));
             if (child == null) {
                 return 0;
@@ -72,7 +72,7 @@ public class Solution {
          */
         Node root = new Node();
         ArrayList<Integer> finds = new ArrayList<>();
-        
+
         for (int i = 0; i < queries.length; i++) {
             String op = queries[i][0];
             String term = queries[i][1];
@@ -83,12 +83,12 @@ public class Solution {
                 finds.add(root.findCount(term));
             }
         }
-        
+
         int[] result = new int[finds.size()];
         for (int i = 0; i < result.length; i++) {
             result[i] = finds.get(i);
         }
-        
+
         return result;
     }
 

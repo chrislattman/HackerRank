@@ -12,14 +12,16 @@ def makeAnagram(a, b):
     a_map = {}
     b_map = {}
 
-    for i in range(len(a)):
+    a_len = len(a)
+    for i in range(a_len):
         letter = a[i]
         if letter in a_map:
             a_map[letter] += 1
         else:
             a_map[letter] = 1
 
-    for j in range(len(b)):
+    b_len = len(b)
+    for j in range(b_len):
         letter = b[j]
         if letter in b_map:
             b_map[letter] += 1

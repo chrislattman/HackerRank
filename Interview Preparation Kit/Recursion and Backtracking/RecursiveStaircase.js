@@ -41,7 +41,7 @@ function stepPerms(n) {
         b = c;
         c = current;
     }
-    
+
     return c;
 }
 

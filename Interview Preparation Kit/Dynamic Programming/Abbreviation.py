@@ -10,10 +10,10 @@ import sys
 def abbreviation(a, b):
     m = len(a)
     n = len(b)
-    
+
     valid = [[False] * (n + 1) for _ in range(m + 1)]
     valid[0][0] = True;
-    
+
     for i in range(1, m + 1):
         end = min(i, n)
         for j in range(end + 1):
@@ -29,7 +29,7 @@ def abbreviation(a, b):
                     valid[i][j] = valid[i - 1][j - 1] | valid[i - 1][j]
                 elif a_char.islower():
                     valid[i][j] = valid[i - 1][j]
-    
+
     if valid[m][n]:
         return "YES"
     return "NO"

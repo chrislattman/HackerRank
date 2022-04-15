@@ -32,7 +32,8 @@ function minimumAbsoluteDifference(arr) {
         return a - b;
     });
 
-    for (let i = 0; i < arr.length - 1; i++) {
+    let stop = arr.length - 1;
+    for (let i = 0; i < stop; i++) {
         let diff = arr[i + 1] - arr[i];
         if (diff < min_diff) {
             min_diff = diff;

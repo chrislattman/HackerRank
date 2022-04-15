@@ -14,7 +14,7 @@ char* readline();
 int compare(const void *a, const void *b) {
     int arg1 = *(const int*) a;
     int arg2 = *(const int*) b;
- 
+
     if (arg1 < arg2) {
         return -1;
     }
@@ -31,7 +31,8 @@ int maxMin(int k, int arr_count, int* arr) {
     qsort(arr, arr_count, sizeof(int), compare);
     int min_diff = INT_MAX;
 
-    for (int i = 0; i <= arr_count - k; i++) {
+    int stop = arr_count - k;
+    for (int i = 0; i <= stop; i++) {
         int diff = arr[i + k - 1] - arr[i];
         if (diff < min_diff) {
             min_diff = diff;

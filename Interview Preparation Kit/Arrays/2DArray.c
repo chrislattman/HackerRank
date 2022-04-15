@@ -17,18 +17,19 @@ int hourglassSum(int arr_rows, int arr_columns, int** arr) {
     int max = INT_MIN;
 
     for (int i = 0; i < 16; i++) {
-        int first = arr[i / 4][i % 4];
-        int second = arr[i / 4][(i % 4) + 1];
-        int third = arr[i / 4][(i % 4) + 2];
-        int fourth = arr[(i / 4) + 1][(i % 4) + 1];
-        int fifth = arr[(i / 4) + 2][i % 4];
-        int sixth = arr[(i / 4) + 2][(i % 4) + 1];
-        int seventh = arr[(i / 4) + 2][(i % 4) + 2];
+        int quotient = i / 4;
+        int remainder = i % 4;
+
+        int first = arr[quotient][remainder];
+        int second = arr[quotient][remainder + 1];
+        int third = arr[quotient][remainder + 2];
+        int fourth = arr[quotient + 1][remainder + 1];
+        int fifth = arr[quotient + 2][remainder];
+        int sixth = arr[quotient + 2][remainder + 1];
+        int seventh = arr[quotient + 2][remainder + 2];
 
         int sum = first + second + third + fourth + fifth + sixth + seventh;
-        if (sum > max) {
-            max = sum;
-        }
+        max = (int)fmax((double)sum, (double)max);
     }
 
     return max;

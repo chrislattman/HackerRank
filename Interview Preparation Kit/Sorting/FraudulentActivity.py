@@ -14,20 +14,20 @@ class RollingMedianHeaps:
         self.maxHeap = []
         heapify(self.minHeap)
         heapify(self.maxHeap)
-        
+
     def getMedian(self):
         size = len(self.minHeap) + len(self.maxHeap)
         if size % 2 == 0:
             return (-1 * self.maxHeap[0] + self.minHeap[0]) / 2
         return -1 * self.maxHeap[0]
-    
+
     def add(self, number):
         if len(self.maxHeap) == 0 or number <= -1 * self.maxHeap[0]:
             heappush(self.maxHeap, -1 * number)
         else:
             heappush(self.minHeap, number)
         self.balanceHeaps()
-        
+
     def remove(self, number):
         if (-1 * number) in self.maxHeap:
             self.maxHeap.remove(-1 * number)
@@ -36,7 +36,7 @@ class RollingMedianHeaps:
             self.minHeap.remove(number)
             heapify(self.minHeap)
         self.balanceHeaps()
-        
+
     def balanceHeaps(self):
         if len(self.maxHeap) < len(self.minHeap):
             heappush(self.maxHeap, -1 * heappop(self.minHeap))
@@ -48,14 +48,14 @@ class RollingMedianHeaps:
 def activityNotifications(expenditure, d):
     notifications = 0
     heaps = RollingMedianHeaps()
-    
+
     for i in range(len(expenditure)):
         if i >= d:
             if expenditure[i] >= 2 * heaps.getMedian():
                 notifications = notifications + 1
             heaps.remove(expenditure[i - d])
         heaps.add(expenditure[i])
-        
+
     return notifications
 
 

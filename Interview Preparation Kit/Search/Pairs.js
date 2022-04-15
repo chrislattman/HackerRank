@@ -30,7 +30,6 @@ function binarysearch(arr, left, right, val) {
 
     while (left <= right) {
         mid = parseInt((left + right) / 2);
-        
         if (arr[mid] == val) {
             return mid;
         }
@@ -41,10 +40,10 @@ function binarysearch(arr, left, right, val) {
             left = mid + 1;
         }
     }
-    
+
     return -1;
 }
-    
+
 // Complete the pairs function below.
 function pairs(k, arr) {
     arr.sort(function(a, b) {
@@ -52,8 +51,9 @@ function pairs(k, arr) {
     });
     let result = 0;
 
-    for (let i = 0; i < arr.length - 1; i++) {
-        if (binarysearch(arr, 0, arr.length - 1, arr[i] + k) >= 0) {
+    let edge = arr.length - 1;
+    for (let i = 0; i < edge; i++) {
+        if (binarysearch(arr, 0, edge, arr[i] + k) >= 0) {
             result++;
         }
     }

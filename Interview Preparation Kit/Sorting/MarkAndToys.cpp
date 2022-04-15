@@ -11,7 +11,8 @@ int maximumToys(vector<int> prices, int k) {
     int toys = 0;
     int total = 0;
 
-    for (int i = 0; i < prices.size(); i++) {
+    int prices_count = (int)prices.size();
+    for (int i = 0; i < prices_count; i++) {
         total += prices[i];
         if (total <= k) {
             toys++;

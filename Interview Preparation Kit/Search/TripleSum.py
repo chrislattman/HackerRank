@@ -19,21 +19,21 @@ def triplets(a, b, c):
     b_set.append(b[0])
     c_set.append(c[0])
 
-    for i in range(1, len(a)):
+    len_a, len_b, len_c = len(a), len(b), len(c)
+
+    for i in range(1, len_a):
         if a[i] != a[i - 1]:
             a_set.append(a[i])
 
-    for j in range(1, len(b)):
+    for j in range(1, len_b):
         if b[j] != b[j - 1]:
             b_set.append(b[j])
 
-    for k in range(1, len(c)):
+    for k in range(1, len_c):
         if c[k] != c[k - 1]:
             c_set.append(c[k])
 
-    a_size = len(a_set)
-    b_size = len(b_set)
-    c_size = len(c_set)
+    a_size, b_size, c_size = len(a_set), len(b_set), len(c_set)
 
     triplets = 0
     a_index = 0

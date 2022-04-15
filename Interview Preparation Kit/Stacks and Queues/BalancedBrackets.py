@@ -10,7 +10,8 @@ import sys
 def isBalanced(s):
     stack = []
 
-    for i in range(len(s)):
+    s_len = len(s)
+    for i in range(s_len):
         bracket = s[i]
         if bracket == '(' or bracket == '{' or bracket == '[':
             stack.append(bracket)

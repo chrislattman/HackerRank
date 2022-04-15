@@ -11,13 +11,14 @@ def alternatingCharacters(s):
     last = s[0]
     builder = [last]
 
-    for i in range(1, len(s)):
+    s_len = len(s)
+    for i in range(1, s_len):
         current = s[i]
         if current != last:
             builder.append(current)
             last = current
 
-    return len(s) - len(builder)
+    return s_len - len(builder)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

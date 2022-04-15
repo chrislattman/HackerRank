@@ -15,11 +15,11 @@ char* readline();
 int commonChild(char* s1, char* s2) {
     int m = strlen(s1);
     int n = strlen(s2);
-    int** lcs = (int**) malloc((m + 1) * sizeof(int*));
+    int** lcs = (int**) malloc(((size_t)m + 1) * sizeof(int*));
     for (int i = 0; i <= m; i++) {
-        lcs[i] = (int*) calloc(n + 1, sizeof(int));
+        lcs[i] = (int*) calloc((size_t)n + 1, sizeof(int));
     }
-    
+
     for (int i = 0; i <= m; i++) {
         for (int j = 0; j <= n; j++) {
             if (i == 0 || j == 0) {
@@ -29,17 +29,18 @@ int commonChild(char* s1, char* s2) {
                 lcs[i][j] = lcs[i - 1][j - 1] + 1;
             }
             else {
-                lcs[i][j] = (int) fmax(lcs[i - 1][j], lcs[i][j - 1]);
+                lcs[i][j] = (int)fmax((double)lcs[i - 1][j],
+                    (double)lcs[i][j - 1]);
             }
         }
     }
-    
+
     int result = lcs[m][n];
     for (int i = 0; i < m; i++) {
         free(lcs[i]);
     }
     free(lcs);
-    
+
     return result;
 }
 

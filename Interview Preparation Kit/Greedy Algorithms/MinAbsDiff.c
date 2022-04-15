@@ -15,7 +15,7 @@ char** split_string(char*);
 int compare(const void *a, const void *b) {
     int arg1 = *(const int*) a;
     int arg2 = *(const int*) b;
- 
+
     if (arg1 < arg2) {
         return -1;
     }
@@ -32,7 +32,8 @@ int minimumAbsoluteDifference(int arr_count, int* arr) {
     int min_diff = INT_MAX;
     qsort(arr, arr_count, sizeof(int), compare);
 
-    for (int i = 0; i < arr_count - 1; i++) {
+    int stop = arr_count - 1;
+    for (int i = 0; i < stop; i++) {
         int diff = arr[i + 1] - arr[i];
         if (diff < min_diff) {
             min_diff = diff;

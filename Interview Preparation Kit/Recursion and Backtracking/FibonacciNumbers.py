@@ -10,7 +10,7 @@ def fibonacci(n):
         current = a + b
         a = b
         b = current
-    
+
     return b
 
 

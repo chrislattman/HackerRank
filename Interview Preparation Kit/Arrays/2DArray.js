@@ -30,18 +30,19 @@ function hourglassSum(arr) {
     let max = Number.MIN_SAFE_INTEGER;
 
     for (let i = 0; i < 16; i++) {
-        let first = arr[parseInt(i / 4)][i % 4];
-        let second = arr[parseInt(i / 4)][(i % 4) + 1];
-        let third = arr[parseInt(i / 4)][(i % 4) + 2];
-        let fourth = arr[parseInt(i / 4) + 1][(i % 4) + 1];
-        let fifth = arr[parseInt(i / 4) + 2][i % 4];
-        let sixth = arr[parseInt(i / 4) + 2][(i % 4) + 1];
-        let seventh = arr[parseInt(i / 4) + 2][(i % 4) + 2];
+        let quotient = parseInt(i / 4);
+        let remainder = i % 4;
+
+        let first = arr[quotient][remainder];
+        let second = arr[quotient][remainder + 1];
+        let third = arr[quotient][remainder + 2];
+        let fourth = arr[quotient + 1][remainder + 1];
+        let fifth = arr[quotient + 2][remainder];
+        let sixth = arr[quotient + 2][remainder + 1];
+        let seventh = arr[quotient + 2][remainder + 2];
 
         let sum = first + second + third + fourth + fifth + sixth + seventh;
-        if (sum > max) {
-            max = sum;
-        }
+        max = Math.max(sum, max);
     }
 
     return max;

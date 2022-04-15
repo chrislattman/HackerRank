@@ -9,38 +9,33 @@ import java.util.regex.*;
 
 public class Solution {
 
-    static int search(int[][] grid, boolean[][] visited, int x, int y) {
-        if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length && 
-                grid[x][y] == 1 && !visited[x][y]) {
-            visited[x][y] = true;
-            return 1 + search(grid, visited, x - 1, y) + 
-                    search(grid, visited, x + 1, y) + 
-                    search(grid, visited, x, y - 1) + 
-                    search(grid, visited, x, y + 1) + 
-                    search(grid, visited, x - 1, y - 1) + 
-                    search(grid, visited, x + 1, y - 1) + 
-                    search(grid, visited, x - 1, y + 1) + 
-                    search(grid, visited, x + 1, y + 1);
+    static int search(int[][] grid, int x, int y) {
+        if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length &&
+            grid[x][y] == 1) {
+            grid[x][y] = 0;
+            return 1 + search(grid, x - 1, y) + search(grid, x + 1, y) +
+                    search(grid, x, y - 1) + search(grid, x, y + 1) +
+                    search(grid, x - 1, y - 1) + search(grid, x + 1, y - 1) +
+                    search(grid, x - 1, y + 1) + search(grid, x + 1, y + 1);
         }
         return 0;
     }
 
     // Complete the maxRegion function below.
     static int maxRegion(int[][] grid) {
-        boolean[][] visited = new boolean[grid.length][grid[0].length];
         int largest = 0;
-        
+
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid[0].length; y++) {
-                if (grid[x][y] == 1 && !visited[x][y]) {
-                    int current = search(grid, visited, x, y);
+                if (grid[x][y] == 1) {
+                    int current = search(grid, x, y);
                     if (current > largest) {
                         largest = current;
                     }
                 }
             }
         }
-        
+
         return largest;
     }
 

@@ -26,18 +26,18 @@ char* readline();
 char* abbreviation(char* a, char* b) {
     int m = strlen(a);
     int n = strlen(b);
-    
+
     bool** valid = (bool**) malloc((m + 1) * sizeof(bool*));
     for (int i = 0; i <= m; i++) {
         valid[i] = (bool*) calloc(n + 1, sizeof(bool));
     }
     valid[0][0] = true;
-    
+
     for (int i = 1; i <= m; i++) {
         int end = fmin(i, n);
         for (int j = 0; j <= end; j++) {
             char a_char = a[i - 1];
-            
+
             if (j == 0) {
                 if (islower(a_char)) {
                     valid[i][j] = valid[i - 1][j];
@@ -45,7 +45,7 @@ char* abbreviation(char* a, char* b) {
             }
             else {
                 char b_char = b[j - 1];
-                
+
                 if (a_char == b_char) {
                     valid[i][j] = valid[i - 1][j - 1];
                 }
@@ -58,13 +58,13 @@ char* abbreviation(char* a, char* b) {
             }
         }
     }
-    
+
     bool result = valid[m][n];
     for (int i = 0; i <= m; i++) {
         free(valid[i]);
     }
     free(valid);
-    
+
     if (result) {
         char* yes = "YES";
         return yes;

@@ -11,13 +11,14 @@ public class Solution {
 
     // Complete the superDigit function below.
     static int superDigit(String n, int k) {
-        if (n.length() == 1 && k == 1) {
+        int n_len = n.length();
+        if (n_len == 1 && k == 1) {
             return Integer.parseInt(n);
         }
-        
+
         long sum = 0L;
-        for (int i = 0; i < n.length(); i++) {
-            sum += ((long) n.charAt(i) - 48) * (long) k;
+        for (int i = 0; i < n_len; i++) {
+            sum += (long)(n.charAt(i) - '0') * (long)k;
         }
 
         return superDigit(sum + "", 1);

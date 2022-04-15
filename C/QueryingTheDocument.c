@@ -40,7 +40,7 @@ char**** get_document(char* text) {
         npar++;
     }
     char**** doc = malloc((npar+1)*sizeof(char***));
-    doc[npar] = NULL; 
+    doc[npar] = NULL;
     int i = 0;
     while (paragraphs[i] != NULL) {
         char** sentences = split_string(paragraphs[i], '.');
@@ -49,7 +49,7 @@ char**** get_document(char* text) {
             nsen++;
         }
         doc[i] = malloc((nsen+1)*sizeof(char**));
-        doc[i][nsen] = NULL; 
+        doc[i][nsen] = NULL;
         int j = 0;
         while (sentences[j] != NULL) {
             doc[i][j] = split_string(sentences[j], ' ');
@@ -57,11 +57,11 @@ char**** get_document(char* text) {
         }
         i++;
     }
-    
-    return doc; 
+
+    return doc;
 }
 
-char* get_input_text() {    
+char* get_input_text() {
     int paragraph_count;
     scanf("%d", &paragraph_count);
 
@@ -92,7 +92,7 @@ void print_sentence(char** sentence) {
         if( i != word_count - 1)
             printf(" ");
     }
-} 
+}
 
 void print_paragraph(char*** paragraph) {
     int sentence_count;
@@ -103,7 +103,7 @@ void print_paragraph(char*** paragraph) {
     }
 }
 
-int main() 
+int main()
 {
     char* text = get_input_text();
     char**** document = get_document(text);
@@ -136,5 +136,5 @@ int main()
             print_paragraph(paragraph);
         }
         printf("\n");
-    }     
+    }
 }

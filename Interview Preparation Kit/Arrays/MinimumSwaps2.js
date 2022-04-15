@@ -30,7 +30,7 @@ function minimumSwaps(arr) {
     let swaps = 0;
     let index = 0;
     let current_value = 1;
-    
+
     while (current_value < arr.length) {
         let arr_value = arr[index];
         while (arr_value != current_value) {
@@ -45,7 +45,7 @@ function minimumSwaps(arr) {
         current_value++;
         index = arr_value;
     }
-    
+
     return swaps;
 }
 

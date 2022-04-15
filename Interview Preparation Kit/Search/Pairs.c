@@ -15,7 +15,7 @@ char** split_string(char*);
 int compare(const void *a, const void *b) {
     int arg1 = *(const int*) a;
     int arg2 = *(const int*) b;
- 
+
     if (arg1 < arg2) {
         return -1;
     }
@@ -32,7 +32,6 @@ int binarysearch(int* arr, int left, int right, int val) {
 
     while (left <= right) {
         mid = (left + right) / 2;
-        
         if (arr[mid] == val) {
             return mid;
         }
@@ -43,7 +42,7 @@ int binarysearch(int* arr, int left, int right, int val) {
             left = mid + 1;
         }
     }
-    
+
     return -1;
 }
 
@@ -52,8 +51,9 @@ int pairs(int k, int arr_count, int* arr) {
     qsort(arr, arr_count, sizeof(int), compare);
     int result = 0;
 
-    for (int i = 0; i < arr_count - 1; i++) {
-        if (binarysearch(arr, 0, arr_count - 1, arr[i] + k) >= 0) {
+    int edge = arr_count - 1;
+    for (int i = 0; i < edge; i++) {
+        if (binarysearch(arr, 0, edge, arr[i] + k) >= 0) {
             result++;
         }
     }

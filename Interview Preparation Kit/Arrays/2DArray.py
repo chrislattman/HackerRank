@@ -11,19 +11,20 @@ def hourglassSum(arr):
     maximum = float('-inf')
 
     for i in range(16):
-        first = arr[int(i / 4)][i % 4]
-        second = arr[int(i / 4)][(i % 4) + 1]
-        third = arr[int(i / 4)][(i % 4) + 2]
-        fourth = arr[int(i / 4) + 1][(i % 4) + 1]
-        fifth = arr[int(i / 4) + 2][i % 4]
-        sixth = arr[int(i / 4) + 2][(i % 4) + 1]
-        seventh = arr[int(i / 4) + 2][(i % 4) + 2]
+        quotient = int(i / 4)
+        remainder = i % 4
+
+        first = arr[quotient][remainder]
+        second = arr[quotient][remainder + 1]
+        third = arr[quotient][remainder + 2]
+        fourth = arr[quotient + 1][remainder + 1]
+        fifth = arr[quotient + 2][remainder]
+        sixth = arr[quotient + 2][remainder + 1]
+        seventh = arr[quotient + 2][remainder + 2]
 
         total = first + second + third + fourth + fifth + sixth + seventh
+        maximum = max(total, maximum)
 
-        if total > maximum:
-            maximum = total
-    
     return maximum
 
 if __name__ == '__main__':

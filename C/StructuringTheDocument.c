@@ -94,7 +94,7 @@ struct document get_document(char *text) {
         add_paragraph(doc, paragraph);
         offs += len + 1;
     }
-    
+
     return *doc;
 }
 

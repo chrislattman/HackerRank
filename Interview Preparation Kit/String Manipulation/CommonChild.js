@@ -30,7 +30,7 @@ function commonChild(s1, s2) {
     let m = s1.length;
     let n = s2.length;
     let lcs = Array(m + 1).fill().map(() => Array(n + 1).fill(0));
-    
+
     for (let i = 0; i <= m; i++) {
         for (let j = 0; j <= n; j++) {
             if (i == 0 || j == 0) {
@@ -44,7 +44,7 @@ function commonChild(s1, s2) {
             }
         }
     }
-    
+
     return lcs[m][n];
 }
 

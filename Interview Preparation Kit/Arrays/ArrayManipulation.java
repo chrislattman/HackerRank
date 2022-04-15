@@ -13,26 +13,24 @@ public class Solution {
     static long arrayManipulation(int n, int[][] queries) {
         long largest = 0;
         long[] array = new long[n];
-        
+
         for (int i = 0; i < queries.length; i++) {
             int a = queries[i][0];
             int b = queries[i][1];
             long k = (long) queries[i][2];
-            
+
             array[a - 1] += k;
             if (b < n) {
                 array[b] -= k;
             }
         }
-        
+
         long curr_largest = 0;
         for (int j = 0; j < n; j++) {
             curr_largest += array[j];
-            if (curr_largest > largest) {
-                largest = curr_largest;
-            }
+            largest = Math.max(curr_largest, largest);
         }
-        
+
         return largest;
     }
 

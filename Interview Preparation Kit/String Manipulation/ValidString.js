@@ -73,11 +73,11 @@ function isValid(s) {
         lowestFrequency == 1) {
         return "YES";
     }
-    if (lowestFrequency * lowestFrequencyCount + highestFrequency == 
+    if (lowestFrequency * lowestFrequencyCount + highestFrequency ==
         s.length && highestFrequency - 1 == lowestFrequency) {
         return "YES";
     }
-    
+
     return "NO";
 }
 

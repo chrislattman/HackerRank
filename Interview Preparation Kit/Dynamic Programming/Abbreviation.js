@@ -29,15 +29,15 @@ function readLine() {
 function abbreviation(a, b) {
     let m = a.length;
     let n = b.length;
-    
+
     let valid = Array(m + 1).fill().map(() => Array(n + 1).fill(false));
     valid[0][0] = true;
-    
+
     for (let i = 1; i <= m; i++) {
         let end = Math.min(i, n);
         for (let j = 0; j <= end; j++) {
             let a_char = a[i - 1];
-            
+
             if (j == 0) {
                 if (a_char == a_char.toLowerCase()) {
                     valid[i][j] = valid[i - 1][j];
@@ -45,7 +45,7 @@ function abbreviation(a, b) {
             }
             else {
                 let b_char = b[j - 1];
-                
+
                 if (a_char == b_char) {
                     valid[i][j] = valid[i - 1][j - 1];
                 }
@@ -58,7 +58,7 @@ function abbreviation(a, b) {
             }
         }
     }
-    
+
     if (valid[m][n]) {
         return "YES";
     }

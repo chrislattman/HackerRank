@@ -6,7 +6,7 @@ class Node {
     Node left;
     Node right;
     int data;
-    
+
     Node(int data) {
         this.data = data;
         left = null;
@@ -23,10 +23,10 @@ class Solution {
         if (root.data < v1 && root.data < v2) {
             return lca(root.right, v1, v2);
         }
-        
+
         return root;
     }
-    
+
     public static Node insert(Node root, int data) {
         if(root == null) {
             return new Node(data);
@@ -56,5 +56,5 @@ class Solution {
         scan.close();
         Node ans = lca(root,v1,v2);
         System.out.println(ans.data);
-    }   
+    }
 }

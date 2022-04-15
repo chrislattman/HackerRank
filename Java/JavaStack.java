@@ -2,7 +2,7 @@
 import java.util.*;
 
 class Solution {
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
@@ -10,7 +10,8 @@ class Solution {
             //Complete the code
             Stack<Character> stack = new Stack<>();
             boolean returned = false;
-            for (int i = 0; i < input.length(); i++) {
+            int length = input.length();
+            for (int i = 0; i < length; i++) {
                 char bracket = input.charAt(i);
                 if (bracket == '(' || bracket == '{' || bracket == '[') {
                     stack.push(bracket);
@@ -39,7 +40,7 @@ class Solution {
                     }
                 }
             }
-            
+
             if (stack.isEmpty() && !returned) {
                 System.out.println("true");
             }

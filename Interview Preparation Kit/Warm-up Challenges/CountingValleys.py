@@ -25,7 +25,7 @@ def countingValleys(steps, path):
             altitude += 1
         else:
             altitude -= 1
-        
+
         if altitude < 0:
             inValley = True
         elif inValley:

@@ -32,7 +32,8 @@ function maxMin(k, arr) {
     });
     let min_diff = Number.MAX_SAFE_INTEGER;
 
-    for (let i = 0; i <= arr.length - k; i++) {
+    let stop = arr.length - k
+    for (let i = 0; i <= stop; i++) {
         let diff = arr[i + k - 1] - arr[i];
         if (diff < min_diff) {
             min_diff = diff;

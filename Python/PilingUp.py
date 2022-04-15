@@ -21,7 +21,7 @@ for case in range(cases):
             pile_size = pile_size + 1
         else:
             broken = True
-    
+
     if broken:
         print('No')
     else:

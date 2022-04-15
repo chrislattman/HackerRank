@@ -52,12 +52,12 @@ void send_all_acceptable_packages(town* source, int source_office_index, town* t
             target_office->packages_count++;
             for(int j=i;j<source_office->packages_count-1;j++){
                 source_office->packages[j] = source_office->packages[j+1];
-            }            
+            }
             source_office->packages_count--;
             i--;
-            source_office->packages = (package*)realloc(source_office->packages,sizeof(package)*(source_office->packages_count));            
+            source_office->packages = (package*)realloc(source_office->packages,sizeof(package)*(source_office->packages_count));
         }
-    }    
+    }
 }
 
 town town_with_most_packages(town* towns, int towns_count) {
@@ -76,7 +76,7 @@ town town_with_most_packages(town* towns, int towns_count) {
     return t;
 }
 
-town* find_town(town* towns, int towns_count, char* name) {  
+town* find_town(town* towns, int towns_count, char* name) {
     town* p;
     for(p = towns; p; p++){
         if(strcmp(p->name,name)==0){

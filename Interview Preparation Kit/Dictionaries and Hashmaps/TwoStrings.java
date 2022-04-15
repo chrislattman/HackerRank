@@ -22,7 +22,7 @@ public class Solution {
                 return "YES";
             }
         }
-        
+
         return "NO";
     }
 

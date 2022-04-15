@@ -115,7 +115,7 @@ function main() {
             const llist1Item = parseInt(readLine(), 10);
             llist1.insertNode(llist1Item);
         }
-      
+
         const llist2Count = parseInt(readLine(), 10);
 
         let llist2 = new SinglyLinkedList();
@@ -124,7 +124,7 @@ function main() {
             const llist2Item = parseInt(readLine(), 10);
             llist2.insertNode(llist2Item);
         }
-      
+
         let ptr1 = llist1.head;
         let ptr2 = llist2.head;
 

@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.regex.*;
 
 public class Solution {
-    
+
     static int find(int vertex, int[] vertexArray) {
         if (vertexArray[vertex] == vertex) {
             return vertex;
@@ -25,16 +25,16 @@ public class Solution {
         int array_length = gb.length * gb[0].length;
         int[] vertexArray = new int[array_length];
         int[] weights = new int[array_length];
-        
+
         for (int i = 0; i < array_length; i++) {
             vertexArray[i] = i;
             weights[i] = 1;
         }
-        
+
         for (int i = 0; i < gb.length; i++) {
             int u = gb[i][0] - 1;
             int v = gb[i][1] - 1;
-            
+
             int u_parent = find(u, vertexArray);
             int v_parent = find(v, vertexArray);
             if (u_parent != v_parent) {
@@ -56,10 +56,10 @@ public class Solution {
                 }
             }
         }
-        
+
         int min = Integer.MAX_VALUE;
         int max = 0;
-        
+
         for (int i = 0; i < array_length; i++) {
             if (weights[i] > 1) {
                 if (weights[i] < min && vertexArray[i] == i) {
@@ -70,7 +70,7 @@ public class Solution {
                 }
             }
         }
-        
+
         return new int[]{min, max};
     }
 

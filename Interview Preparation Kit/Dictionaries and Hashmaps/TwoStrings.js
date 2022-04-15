@@ -38,7 +38,7 @@ function twoStrings(s1, s2) {
             return "YES";
         }
     }
-    
+
     return "NO";
 }
 

@@ -14,7 +14,7 @@ public class Solution {
         int swaps = 0;
         int index = 0;
         int current_value = 1;
-        
+
         while (current_value < arr.length) {
             int arr_value = arr[index];
             while (arr_value != current_value) {
@@ -29,7 +29,7 @@ public class Solution {
             current_value++;
             index = arr_value;
         }
-        
+
         return swaps;
     }
 

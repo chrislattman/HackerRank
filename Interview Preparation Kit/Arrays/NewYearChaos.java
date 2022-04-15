@@ -16,32 +16,34 @@ public class Solution {
         int lastSortedIndex = -1;
         boolean too_chaotic = false;
         HashMap<Integer, Integer> bribeMap = new HashMap<>();
-        
-        while (index < q.length - 1) {
-            if (q[index] > q[index + 1]) {
-                if (bribeMap.containsKey(q[index]) && bribeMap.get(q[index]) >= 2) {
+
+        int stop = q.length - 1;
+        while (index < stop) {
+            int current = q[index];
+            if (current > q[index + 1]) {
+                if (bribeMap.containsKey(current) && bribeMap.get(current) >= 2) {
                     System.out.println("Too chaotic");
                     too_chaotic = true;
                     break;
                 }
-                if (!bribeMap.containsKey(q[index])) {
-                    bribeMap.put(q[index], 0);
+                if (!bribeMap.containsKey(current)) {
+                    bribeMap.put(current, 0);
                 }
-                bribeMap.put(q[index], bribeMap.get(q[index]) + 1);
-                
+                bribeMap.put(current, bribeMap.get(current) + 1);
+
                 int temp = q[index];
                 q[index] = q[index + 1];
                 q[index + 1] = temp;
-                
+
                 swaps++;
                 index = lastSortedIndex;
             }
-            else if (q[index] == index + 1) {
+            else if (current == index + 1) {
                 lastSortedIndex++;
             }
             index++;
         }
-        
+
         if (!too_chaotic) {
             System.out.println(swaps);
         }

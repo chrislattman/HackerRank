@@ -34,7 +34,7 @@ class Solution {
            }
         }
 
-/*The tree node has data, left child and right child 
+/*The tree node has data, left child and right child
 class Node {
     int data;
     Node* left;
@@ -42,7 +42,7 @@ class Node {
 };
 
 */
-  
+
     Node *lca(Node *root, int v1,int v2) {
         if (root->data > v1 && root->data > v2) {
             return lca(root->left, v1, v2);
@@ -50,17 +50,17 @@ class Node {
         if (root->data < v1 && root->data < v2) {
             return lca(root->right, v1, v2);
         }
-        
+
         return root;
     }
 
 }; //End of Solution
 
 int main() {
-  
+
     Solution myTree;
     Node* root = NULL;
-    
+
     int t;
     int data;
 
@@ -70,12 +70,12 @@ int main() {
         std::cin >> data;
         root = myTree.insert(root, data);
     }
-    
+
     int v1, v2;
     std::cin >> v1 >> v2;
-  
+
     Node *ans = myTree.lca(root, v1, v2);
-    
+
     std::cout << ans->data;
 
     return 0;

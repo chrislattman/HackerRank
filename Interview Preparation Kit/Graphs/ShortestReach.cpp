@@ -16,26 +16,26 @@ class Graph {
         };
         vector<Node> nodes;
         int edge_weight = 6;
-        
+
     public:
         Graph(int n) {
             for (int i = 0; i < n; i++) {
                 nodes.insert(nodes.end(), Node());
             }
         }
-    
+
         void add_edge(int u, int v) {
             nodes[u].neighbors.insert(nodes[u].neighbors.end(), v);
             nodes[v].neighbors.insert(nodes[v].neighbors.end(), u);
         }
-    
+
         vector<int> shortest_reach(int start) {
             deque<int> queue;
             queue.push_back(start);
-            
+
             vector<int> distances(nodes.size(), -1);
             distances[start] = 0;
-            
+
             while (!queue.empty()) {
                 int node = queue.front();
                 queue.pop_front();
@@ -46,7 +46,7 @@ class Graph {
                     }
                 }
             }
-            
+
             return distances;
         }
 };
@@ -54,12 +54,12 @@ class Graph {
 int main() {
     int queries;
     cin >> queries;
-    
+
     for (int t = 0; t < queries; t++) {
-      
+
         int n, m;
         cin >> n;
-        // Create a graph of size n where each edge weight is 6: 
+        // Create a graph of size n where each edge weight is 6:
         Graph graph(n);
         cin >> m;
         // read and set edges
@@ -83,6 +83,6 @@ int main() {
         }
         cout << endl;
     }
-    
+
     return 0;
 }

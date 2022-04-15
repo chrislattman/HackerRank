@@ -13,7 +13,7 @@ def candies(n, arr):
     up[0] = 1
     down[n - 1] = 1
     result = 0
-    
+
     for i in range(1, n):
         if arr[i] > arr[i - 1]:
             up[i] = up[i - 1] + 1
@@ -26,9 +26,9 @@ def candies(n, arr):
             down[j] = 1
     for k in range(n):
         result += max(up[k], down[k]);
-        
+
     return result
-    
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

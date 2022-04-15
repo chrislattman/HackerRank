@@ -9,11 +9,12 @@ import sys
 # Complete the whatFlavors function below.
 def whatFlavors(cost, money):
     prices = {}
+    cost_len = len(cost)
 
-    for i in range(len(cost)):
+    for i in range(cost_len):
         prices[cost[i]] = i
 
-    for j in range(len(cost)):
+    for j in range(cost_len):
         first_price = cost[j]
         second_price = money - cost[j]
         if second_price in prices and prices[second_price] != j:
@@ -21,7 +22,7 @@ def whatFlavors(cost, money):
             second_index = prices[second_price] + 1
             print(str(first_index) + " " + str(second_index))
             break
-        
+
 
 if __name__ == '__main__':
     t = int(input())

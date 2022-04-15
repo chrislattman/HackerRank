@@ -10,22 +10,22 @@ import sys
 def arrayManipulation(n, queries):
     largest = 0
     array = [0] * n
-    
-    for i in range(len(queries)):
+
+    queries_len = len(queries)
+    for i in range(queries_len):
         a = queries[i][0]
         b = queries[i][1]
         k = queries[i][2]
-        
+
         array[a - 1] += k
         if (b < n):
             array[b] -= k
-    
+
     curr_largest = 0
     for j in range(n):
         curr_largest += array[j]
-        if curr_largest > largest:
-            largest = curr_largest
-    
+        largest = max(curr_largest, largest)
+
     return largest
 
 

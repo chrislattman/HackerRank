@@ -79,13 +79,13 @@ function printDoublyLinkedList(node, sep, ws) {
  */
 function reverse(head) {
     let current = head;
-        
+
     while (current != null) {
         let next = current.next;
 
         current.next = current.prev;
         current.prev = next;
-        
+
         if (current.prev == null) {
             head = current;
             break;

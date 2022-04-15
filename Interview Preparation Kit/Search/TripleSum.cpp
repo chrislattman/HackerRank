@@ -18,19 +18,23 @@ long triplets(vector<int> a, vector<int> b, vector<int> c) {
     b_set.insert(b_set.end(), b[0]);
     c_set.insert(c_set.end(), c[0]);
 
-    for (int i = 1; i < a.size(); i++) {
+    int len_a = (int)a.size();
+    int len_b = (int)b.size();
+    int len_c = (int)c.size();
+
+    for (int i = 1; i < len_a; i++) {
         if (a[i] != a[i - 1]) {
             a_set.insert(a_set.end(), a[i]);
         }
     }
 
-    for (int j = 1; j < b.size(); j++) {
+    for (int j = 1; j < len_b; j++) {
         if (b[j] != b[j - 1]) {
             b_set.insert(b_set.end(), b[j]);
         }
     }
 
-    for (int k = 1; k < c.size(); k++) {
+    for (int k = 1; k < len_c; k++) {
         if (c[k] != c[k - 1]) {
             c_set.insert(c_set.end(), c[k]);
         }
@@ -39,7 +43,7 @@ long triplets(vector<int> a, vector<int> b, vector<int> c) {
     int a_size = a_set.size();
     int b_size = b_set.size();
     int c_size = c_set.size();
-    
+
     long triplets = 0;
     int a_index = 0;
     int c_index = 0;

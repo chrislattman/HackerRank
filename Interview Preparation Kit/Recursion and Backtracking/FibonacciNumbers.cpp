@@ -17,7 +17,7 @@ int fibonacci(int n) {
         a = b;
         b = current;
     }
-    
+
     return b;
 }
 

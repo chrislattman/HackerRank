@@ -12,32 +12,34 @@ void minimumBribes(vector<int> q) {
     int lastSortedIndex = -1;
     bool too_chaotic = false;
     map<int, int> bribeMap;
-    
-    while (index < q.size() - 1) {
-        if (q[index] > q[index + 1]) {
-            if (bribeMap.count(q[index]) > 0 && bribeMap[q[index]] >= 2) {
+
+    int stop = (int)q.size() - 1;
+    while (index < stop) {
+        int current = q[index];
+        if (current > q[index + 1]) {
+            if (bribeMap.count(current) > 0 && bribeMap[current] >= 2) {
                 cout << "Too chaotic" << endl;
                 too_chaotic = true;
                 break;
             }
-            if (bribeMap.count(q[index]) == 0) {
-                bribeMap[q[index]] = 0;
+            if (bribeMap.count(current) == 0) {
+                bribeMap[current] = 0;
             }
-            bribeMap[q[index]]++;
-            
+            bribeMap[current]++;
+
             int temp = q[index];
             q[index] = q[index + 1];
             q[index + 1] = temp;
-            
+
             swaps++;
             index = lastSortedIndex;
         }
-        else if (q[index] == index + 1) {
+        else if (current == index + 1) {
             lastSortedIndex++;
         }
         index++;
     }
-    
+
     if (!too_chaotic) {
         cout << swaps << endl;
     }

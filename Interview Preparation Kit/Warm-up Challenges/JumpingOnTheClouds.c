@@ -16,19 +16,19 @@ char** split_string(char*);
 int jumpingOnClouds(int c_count, int* c) {
     int index = 0;
     int jumps = 0;
+    int stop = c_count - 2;
 
-    while (index < c_count - 2) {
+    while (index < stop) {
         if (c[index + 2] == 0) {
             index += 2;
-            jumps++;
         }
         else {
             index++;
-            jumps++;
         }
+        jumps++;
     }
 
-    if (index == c_count - 2) {
+    if (index == stop) {
         jumps++;
     }
 

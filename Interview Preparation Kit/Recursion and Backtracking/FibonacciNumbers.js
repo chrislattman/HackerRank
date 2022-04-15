@@ -2,7 +2,7 @@
 function processData(input) {
     var n = parseInt(input);
     console.log(fibonacci(n));
-} 
+}
 
 process.stdin.resume();
 process.stdin.setEncoding("ascii");
@@ -29,6 +29,6 @@ function fibonacci(n) {
         a = b;
         b = current;
     }
-    
+
     return b;
 }

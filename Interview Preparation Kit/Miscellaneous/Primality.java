@@ -14,13 +14,14 @@ public class Solution {
         if (n == 1) {
             return "Not prime";
         }
-        
-        for (int i = 2; i <= (int) Math.sqrt(n); i++) {
+
+        int root = (int)Math.sqrt((double)n);
+        for (int i = 2; i <= root; i++) {
             if (n % i == 0) {
                 return "Not prime";
             }
         }
-        
+
         return "Prime";
     }
 

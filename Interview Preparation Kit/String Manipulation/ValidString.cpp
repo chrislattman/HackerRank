@@ -5,13 +5,14 @@ using namespace std;
 
 // Complete the isValid function below.
 string isValid(string s) {
-    if (s.length() < 2) {
+    int s_len = (int)s.length();
+    if (s_len < 2) {
         return "YES";
     }
 
     map<char, int> dict;
 
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s_len; i++) {
         char current = s[i];
         if (dict.count(current) > 0) {
             dict[current] += 1;
@@ -48,15 +49,15 @@ string isValid(string s) {
     if (highestFrequency == lowestFrequency) {
         return "YES";
     }
-    if (highestFrequency * highestFrequencyCount == s.length() - 1 &&
+    if (highestFrequency * highestFrequencyCount == s_len - 1 &&
         lowestFrequency == 1) {
         return "YES";
     }
-    if (lowestFrequency * lowestFrequencyCount + highestFrequency == 
-        s.length() && highestFrequency - 1 == lowestFrequency) {
+    if (lowestFrequency * lowestFrequencyCount + highestFrequency == s_len &&
+        highestFrequency - 1 == lowestFrequency) {
         return "YES";
     }
-    
+
     return "NO";
 }
 

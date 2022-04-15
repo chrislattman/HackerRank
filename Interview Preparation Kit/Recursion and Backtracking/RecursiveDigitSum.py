@@ -8,11 +8,12 @@ import sys
 
 # Complete the superDigit function below.
 def superDigit(n, k):
-    if len(n) == 1 and k == 1:
+    n_len = len(n)
+    if n_len == 1 and k == 1:
         return int(n)
 
     sum = 0
-    for i in range(len(n)):
+    for i in range(n_len):
         sum += int(n[i]) * k
 
     return superDigit(str(sum), 1)

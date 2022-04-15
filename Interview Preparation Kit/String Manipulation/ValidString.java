@@ -11,13 +11,14 @@ public class Solution {
 
     // Complete the isValid function below.
     static String isValid(String s) {
-        if (s.length() < 2) {
+        int s_len = s.length();
+        if (s_len < 2) {
             return "YES";
         }
 
         HashMap<Character, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s_len; i++) {
             char current = s.charAt(i);
             if (map.containsKey(current)) {
                 map.put(current, map.get(current) + 1);
@@ -55,15 +56,15 @@ public class Solution {
         if (highestFrequency == lowestFrequency) {
             return "YES";
         }
-        if (highestFrequency * highestFrequencyCount == s.length() - 1 &&
+        if (highestFrequency * highestFrequencyCount == s_len - 1 &&
             lowestFrequency == 1) {
             return "YES";
         }
-        if (lowestFrequency * lowestFrequencyCount + highestFrequency == 
-            s.length() && highestFrequency - 1 == lowestFrequency) {
+        if (lowestFrequency * lowestFrequencyCount + highestFrequency == s_len
+            && highestFrequency - 1 == lowestFrequency) {
             return "YES";
         }
-        
+
         return "NO";
     }
 

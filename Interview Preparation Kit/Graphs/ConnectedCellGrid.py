@@ -6,32 +6,33 @@ import random
 import re
 import sys
 
-def search(grid, visited, x, y):
-    if (x >= 0 and y >= 0 and x < len(grid) and y < len(grid[0]) 
-        and grid[x][y] == 1 and not visited[x][y]):
-        visited[x][y] = True
-        return 1 + (search(grid, visited, x - 1, y) + 
-            search(grid, visited, x + 1, y) + 
-            search(grid, visited, x, y - 1) + 
-            search(grid, visited, x, y + 1) + 
-            search(grid, visited, x - 1, y - 1) + 
-            search(grid, visited, x + 1, y - 1) + 
-            search(grid, visited, x - 1, y + 1) + 
-            search(grid, visited, x + 1, y + 1))
+def search(grid, grid_rows, grid_cols, x, y):
+    if (x >= 0 and y >= 0 and x < grid_rows and y < grid_cols
+        and grid[x][y] == 1):
+        grid[x][y] = 0
+        return 1 + (search(grid, grid_rows, grid_cols, x - 1, y) +
+            search(grid, grid_rows, grid_cols, x + 1, y) +
+            search(grid, grid_rows, grid_cols, x, y - 1) +
+            search(grid, grid_rows, grid_cols, x, y + 1) +
+            search(grid, grid_rows, grid_cols, x - 1, y - 1) +
+            search(grid, grid_rows, grid_cols, x + 1, y - 1) +
+            search(grid, grid_rows, grid_cols, x - 1, y + 1) +
+            search(grid, grid_rows, grid_cols, x + 1, y + 1))
     return 0
 
 # Complete the maxRegion function below.
 def maxRegion(grid):
-    visited = [[False] * len(grid[0]) for _ in range(len(grid))]
     largest = 0
-    
-    for x in range(len(grid)):
-        for y in range(len(grid[0])):
-            if grid[x][y] == 1 and not visited[x][y]:
-                current = search(grid, visited, x, y)
+
+    grid_rows = len(grid)
+    grid_cols = len(grid[0])
+    for x in range(grid_rows):
+        for y in range(grid_cols):
+            if grid[x][y] == 1:
+                current = search(grid, grid_rows, grid_cols, x, y)
                 if current > largest:
                     largest = current
-    
+
     return largest
 
 
