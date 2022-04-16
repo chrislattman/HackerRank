@@ -2,13 +2,13 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"math"
-	"os"
-	"strconv"
-	"strings"
+    "bufio"
+    "fmt"
+    "io"
+    "math"
+    "os"
+    "strconv"
+    "strings"
 )
 
 /*
@@ -20,84 +20,84 @@ import (
  *  2. 2D_INTEGER_ARRAY queries
  */
 func arrayManipulation(n int32, queries [][]int32) int64 {
-	largest := int64(0)
-	array := make([]int64, n)
+    largest := int64(0)
+    array := make([]int64, n)
 
-	for _, query := range queries {
-		a, b, k := query[0], query[1], int64(query[2])
+    for _, query := range queries {
+        a, b, k := query[0], query[1], int64(query[2])
 
-		array[a-1] += k
-		if b < n {
-			array[b] -= k
-		}
-	}
+        array[a-1] += k
+        if b < n {
+            array[b] -= k
+        }
+    }
 
-	curr_largest := int64(0)
-	for _, elem := range array {
-		curr_largest += elem
-		largest = int64(math.Max(float64(curr_largest), float64(largest)))
-	}
+    curr_largest := int64(0)
+    for _, elem := range array {
+        curr_largest += elem
+        largest = int64(math.Max(float64(curr_largest), float64(largest)))
+    }
 
-	return largest
+    return largest
 }
 
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+    reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-	checkError(err)
+    stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+    checkError(err)
 
-	defer stdout.Close()
+    defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+    writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
-	checkError(err)
-	n := int32(nTemp)
+    nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
+    checkError(err)
+    n := int32(nTemp)
 
-	mTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
-	checkError(err)
-	m := int32(mTemp)
+    mTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
+    checkError(err)
+    m := int32(mTemp)
 
-	var queries [][]int32
-	for i := 0; i < int(m); i++ {
-		queriesRowTemp := strings.Split(strings.TrimRight(readLine(reader), " \t\r\n"), " ")
+    var queries [][]int32
+    for i := 0; i < int(m); i++ {
+        queriesRowTemp := strings.Split(strings.TrimRight(readLine(reader), " \t\r\n"), " ")
 
-		var queriesRow []int32
-		for _, queriesRowItem := range queriesRowTemp {
-			queriesItemTemp, err := strconv.ParseInt(queriesRowItem, 10, 64)
-			checkError(err)
-			queriesItem := int32(queriesItemTemp)
-			queriesRow = append(queriesRow, queriesItem)
-		}
+        var queriesRow []int32
+        for _, queriesRowItem := range queriesRowTemp {
+            queriesItemTemp, err := strconv.ParseInt(queriesRowItem, 10, 64)
+            checkError(err)
+            queriesItem := int32(queriesItemTemp)
+            queriesRow = append(queriesRow, queriesItem)
+        }
 
-		if len(queriesRow) != 3 {
-			panic("Bad input")
-		}
+        if len(queriesRow) != 3 {
+            panic("Bad input")
+        }
 
-		queries = append(queries, queriesRow)
-	}
+        queries = append(queries, queriesRow)
+    }
 
-	result := arrayManipulation(n, queries)
+    result := arrayManipulation(n, queries)
 
-	fmt.Fprintf(writer, "%d\n", result)
+    fmt.Fprintf(writer, "%d\n", result)
 
-	writer.Flush()
+    writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
-	str, _, err := reader.ReadLine()
-	if err == io.EOF {
-		return ""
-	}
+    str, _, err := reader.ReadLine()
+    if err == io.EOF {
+        return ""
+    }
 
-	return strings.TrimRight(string(str), "\r\n")
+    return strings.TrimRight(string(str), "\r\n")
 }
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }

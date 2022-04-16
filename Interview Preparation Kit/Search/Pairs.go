@@ -2,30 +2,30 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"sort"
-	"strconv"
-	"strings"
+    "bufio"
+    "fmt"
+    "io"
+    "os"
+    "sort"
+    "strconv"
+    "strings"
 )
 
 func binarysearch(arr []int32, left, right int, val int32) int {
-	var mid int
+    var mid int
 
-	for left <= right {
-		mid = (left + right) / 2
-		if arr[mid] == val {
-			return mid
-		} else if arr[mid] > val {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-	}
+    for left <= right {
+        mid = (left + right) / 2
+        if arr[mid] == val {
+            return mid
+        } else if arr[mid] > val {
+            right = mid - 1
+        } else {
+            left = mid + 1
+        }
+    }
 
-	return -1
+    return -1
 }
 
 /*
@@ -37,70 +37,70 @@ func binarysearch(arr []int32, left, right int, val int32) int {
  *  2. INTEGER_ARRAY arr
  */
 func pairs(k int32, arr []int32) int32 {
-	sort.Slice(arr, func(i, j int) bool {
-		return arr[i] < arr[j]
-	})
-	result := int32(0)
+    sort.Slice(arr, func(i, j int) bool {
+        return arr[i] < arr[j]
+    })
+    result := int32(0)
 
-	edge := len(arr) - 1
-	for i := 0; i < edge; i++ {
-		if binarysearch(arr, 0, edge, arr[i]+k) >= 0 {
-			result++
-		}
-	}
+    edge := len(arr) - 1
+    for i := 0; i < edge; i++ {
+        if binarysearch(arr, 0, edge, arr[i]+k) >= 0 {
+            result++
+        }
+    }
 
-	return result
+    return result
 }
 
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+    reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-	checkError(err)
+    stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+    checkError(err)
 
-	defer stdout.Close()
+    defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+    writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
-	checkError(err)
-	n := int32(nTemp)
+    nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
+    checkError(err)
+    n := int32(nTemp)
 
-	kTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
-	checkError(err)
-	k := int32(kTemp)
+    kTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
+    checkError(err)
+    k := int32(kTemp)
 
-	arrTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    arrTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	var arr []int32
+    var arr []int32
 
-	for i := 0; i < int(n); i++ {
-		arrItemTemp, err := strconv.ParseInt(arrTemp[i], 10, 64)
-		checkError(err)
-		arrItem := int32(arrItemTemp)
-		arr = append(arr, arrItem)
-	}
+    for i := 0; i < int(n); i++ {
+        arrItemTemp, err := strconv.ParseInt(arrTemp[i], 10, 64)
+        checkError(err)
+        arrItem := int32(arrItemTemp)
+        arr = append(arr, arrItem)
+    }
 
-	result := pairs(k, arr)
+    result := pairs(k, arr)
 
-	fmt.Fprintf(writer, "%d\n", result)
+    fmt.Fprintf(writer, "%d\n", result)
 
-	writer.Flush()
+    writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
-	str, _, err := reader.ReadLine()
-	if err == io.EOF {
-		return ""
-	}
+    str, _, err := reader.ReadLine()
+    if err == io.EOF {
+        return ""
+    }
 
-	return strings.TrimRight(string(str), "\r\n")
+    return strings.TrimRight(string(str), "\r\n")
 }
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }

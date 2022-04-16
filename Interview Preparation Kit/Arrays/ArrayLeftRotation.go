@@ -2,12 +2,12 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"strconv"
-	"strings"
+    "bufio"
+    "fmt"
+    "io"
+    "os"
+    "strconv"
+    "strings"
 )
 
 /*
@@ -19,73 +19,73 @@ import (
  *  2. INTEGER d
  */
 func rotLeft(a []int32, d int32) []int32 {
-	a_len := int32(len(a))
-	result := make([]int32, a_len)
+    a_len := int32(len(a))
+    result := make([]int32, a_len)
 
-	for i := int32(0); i < a_len; i++ {
-		result[i] = a[(i+d)%a_len]
-	}
+    for i := int32(0); i < a_len; i++ {
+        result[i] = a[(i+d)%a_len]
+    }
 
-	return result
+    return result
 }
 
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+    reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-	checkError(err)
+    stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+    checkError(err)
 
-	defer stdout.Close()
+    defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+    writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
-	checkError(err)
-	n := int32(nTemp)
+    nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
+    checkError(err)
+    n := int32(nTemp)
 
-	dTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
-	checkError(err)
-	d := int32(dTemp)
+    dTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
+    checkError(err)
+    d := int32(dTemp)
 
-	aTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    aTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	var a []int32
+    var a []int32
 
-	for i := 0; i < int(n); i++ {
-		aItemTemp, err := strconv.ParseInt(aTemp[i], 10, 64)
-		checkError(err)
-		aItem := int32(aItemTemp)
-		a = append(a, aItem)
-	}
+    for i := 0; i < int(n); i++ {
+        aItemTemp, err := strconv.ParseInt(aTemp[i], 10, 64)
+        checkError(err)
+        aItem := int32(aItemTemp)
+        a = append(a, aItem)
+    }
 
-	result := rotLeft(a, d)
+    result := rotLeft(a, d)
 
-	for i, resultItem := range result {
-		fmt.Fprintf(writer, "%d", resultItem)
+    for i, resultItem := range result {
+        fmt.Fprintf(writer, "%d", resultItem)
 
-		if i != len(result)-1 {
-			fmt.Fprintf(writer, " ")
-		}
-	}
+        if i != len(result)-1 {
+            fmt.Fprintf(writer, " ")
+        }
+    }
 
-	fmt.Fprintf(writer, "\n")
+    fmt.Fprintf(writer, "\n")
 
-	writer.Flush()
+    writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
-	str, _, err := reader.ReadLine()
-	if err == io.EOF {
-		return ""
-	}
+    str, _, err := reader.ReadLine()
+    if err == io.EOF {
+        return ""
+    }
 
-	return strings.TrimRight(string(str), "\r\n")
+    return strings.TrimRight(string(str), "\r\n")
 }
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }

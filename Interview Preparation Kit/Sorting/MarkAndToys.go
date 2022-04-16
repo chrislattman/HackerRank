@@ -2,13 +2,13 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"os"
-	"sort"
-	"strconv"
-	"strings"
+    "bufio"
+    "fmt"
+    "io"
+    "os"
+    "sort"
+    "strconv"
+    "strings"
 )
 
 /*
@@ -20,72 +20,72 @@ import (
  *  2. INTEGER k
  */
 func maximumToys(prices []int32, k int32) int32 {
-	sort.Slice(prices, func(i, j int) bool {
-		return prices[i] < prices[j]
-	})
-	toys, total := int32(0), int32(0)
+    sort.Slice(prices, func(i, j int) bool {
+        return prices[i] < prices[j]
+    })
+    toys, total := int32(0), int32(0)
 
-	for _, current := range prices {
-		total += current
-		if total <= k {
-			toys++
-		} else {
-			return toys
-		}
-	}
+    for _, current := range prices {
+        total += current
+        if total <= k {
+            toys++
+        } else {
+            return toys
+        }
+    }
 
-	return toys
+    return toys
 }
 
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+    reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-	checkError(err)
+    stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+    checkError(err)
 
-	defer stdout.Close()
+    defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+    writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
-	checkError(err)
-	n := int32(nTemp)
+    nTemp, err := strconv.ParseInt(firstMultipleInput[0], 10, 64)
+    checkError(err)
+    n := int32(nTemp)
 
-	kTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
-	checkError(err)
-	k := int32(kTemp)
+    kTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
+    checkError(err)
+    k := int32(kTemp)
 
-	pricesTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+    pricesTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-	var prices []int32
+    var prices []int32
 
-	for i := 0; i < int(n); i++ {
-		pricesItemTemp, err := strconv.ParseInt(pricesTemp[i], 10, 64)
-		checkError(err)
-		pricesItem := int32(pricesItemTemp)
-		prices = append(prices, pricesItem)
-	}
+    for i := 0; i < int(n); i++ {
+        pricesItemTemp, err := strconv.ParseInt(pricesTemp[i], 10, 64)
+        checkError(err)
+        pricesItem := int32(pricesItemTemp)
+        prices = append(prices, pricesItem)
+    }
 
-	result := maximumToys(prices, k)
+    result := maximumToys(prices, k)
 
-	fmt.Fprintf(writer, "%d\n", result)
+    fmt.Fprintf(writer, "%d\n", result)
 
-	writer.Flush()
+    writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
-	str, _, err := reader.ReadLine()
-	if err == io.EOF {
-		return ""
-	}
+    str, _, err := reader.ReadLine()
+    if err == io.EOF {
+        return ""
+    }
 
-	return strings.TrimRight(string(str), "\r\n")
+    return strings.TrimRight(string(str), "\r\n")
 }
 
 func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+        panic(err)
+    }
 }
