@@ -11,23 +11,6 @@ import (
     "strings"
 )
 
-func binarysearch(arr []int32, left, right int, val int32) int {
-    var mid int
-
-    for left <= right {
-        mid = (left + right) / 2
-        if arr[mid] == val {
-            return mid
-        } else if arr[mid] > val {
-            right = mid - 1
-        } else {
-            left = mid + 1
-        }
-    }
-
-    return -1
-}
-
 /*
  * Complete the 'pairs' function below.
  *
@@ -42,9 +25,12 @@ func pairs(k int32, arr []int32) int32 {
     })
     result := int32(0)
 
-    edge := len(arr) - 1
-    for i := 0; i < edge; i++ {
-        if binarysearch(arr, 0, edge, arr[i]+k) >= 0 {
+    arr_len_min_1 := len(arr) - 1
+    for i := 0; i < arr_len_min_1; i++ {
+        index := sort.Search(len(arr), func(j int) bool {
+            return arr[j] >= arr[i] + k
+        })
+        if index < len(arr) && arr[index] == arr[i] + k {
             result++
         }
     }

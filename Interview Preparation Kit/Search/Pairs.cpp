@@ -5,25 +5,6 @@ using namespace std;
 
 vector<string> split_string(string);
 
-int binarysearch(vector<int> arr, int left, int right, int val) {
-    int mid;
-
-    while (left <= right) {
-        mid = (left + right) / 2;
-        if (arr[mid] == val) {
-            return mid;
-        }
-        else if (arr[mid] > val) {
-            right = mid - 1;
-        }
-        else {
-            left = mid + 1;
-        }
-    }
-
-    return -1;
-}
-
 // Complete the pairs function below.
 int pairs(int k, vector<int> arr) {
     sort(arr.begin(), arr.end());
@@ -31,7 +12,7 @@ int pairs(int k, vector<int> arr) {
 
     int edge = (int)arr.size() - 1;
     for (int i = 0; i < edge; i++) {
-        if (binarysearch(arr, 0, edge, arr[i] + k) >= 0) {
+        if (binary_search(arr.begin(), arr.end(), arr[i] + k)) {
             result++;
         }
     }

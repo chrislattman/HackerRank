@@ -5,18 +5,7 @@ import os
 import random
 import re
 import sys
-
-def binarysearch(arr, left, right, val):
-    while left <= right:
-        mid = int((left + right) / 2)
-        if arr[mid] == val:
-            return mid
-        elif arr[mid] > val:
-            right = mid - 1
-        else:
-            left = mid + 1
-
-    return -1
+from bisect import bisect
 
 # Complete the pairs function below.
 def pairs(k, arr):
@@ -25,7 +14,8 @@ def pairs(k, arr):
 
     edge = len(arr) - 1
     for i in range(edge):
-        if binarysearch(arr, 0, edge, arr[i] + k) >= 0:
+        key = arr[i] + k
+        if arr[bisect(arr, key) - 1] == key:
             result += 1
 
     return result

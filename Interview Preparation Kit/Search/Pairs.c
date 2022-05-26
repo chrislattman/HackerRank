@@ -27,25 +27,6 @@ int compare(const void *a, const void *b) {
     }
 }
 
-int binarysearch(int* arr, int left, int right, int val) {
-    int mid;
-
-    while (left <= right) {
-        mid = (left + right) / 2;
-        if (arr[mid] == val) {
-            return mid;
-        }
-        else if (arr[mid] > val) {
-            right = mid - 1;
-        }
-        else {
-            left = mid + 1;
-        }
-    }
-
-    return -1;
-}
-
 // Complete the pairs function below.
 int pairs(int k, int arr_count, int* arr) {
     qsort(arr, arr_count, sizeof(int), compare);
@@ -53,7 +34,8 @@ int pairs(int k, int arr_count, int* arr) {
 
     int edge = arr_count - 1;
     for (int i = 0; i < edge; i++) {
-        if (binarysearch(arr, 0, edge, arr[i] + k) >= 0) {
+        int key = arr[i] + k;
+        if (bsearch(&key, arr, arr_count, sizeof(int), compare)) {
             result++;
         }
     }

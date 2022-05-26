@@ -9,25 +9,6 @@ import java.util.regex.*;
 
 public class Solution {
 
-    static int binarysearch(int[] arr, int left, int right, int val) {
-        int mid;
-
-        while (left <= right) {
-            mid = (left + right) / 2;
-            if (arr[mid] == val) {
-                return mid;
-            }
-            else if (arr[mid] > val) {
-                right = mid - 1;
-            }
-            else {
-                left = mid + 1;
-            }
-        }
-
-        return -1;
-    }
-
     // Complete the pairs function below.
     static int pairs(int k, int[] arr) {
         Arrays.sort(arr);
@@ -35,7 +16,7 @@ public class Solution {
 
         int edge = arr.length - 1;
         for (int i = 0; i < edge; i++) {
-            if (binarysearch(arr, 0, edge, arr[i] + k) >= 0) {
+            if (Arrays.binarySearch(arr, arr[i] + k) >= 0) {
                 result++;
             }
         }
