@@ -2,12 +2,12 @@
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "io"
-    "os"
-    "strconv"
-    "strings"
+	"bufio"
+	"fmt"
+	"io"
+	"os"
+	"strconv"
+	"strings"
 )
 
 /*
@@ -19,60 +19,60 @@ import (
  *  2. STRING s2
  */
 func twoStrings(s1 string, s2 string) string {
-    set := make(map[rune]bool)
+	set := make(map[rune]bool)
 
-    for _, char_s1 := range s1 {
-        set[char_s1] = true
-    }
+	for _, char_s1 := range s1 {
+		set[char_s1] = true
+	}
 
-    for _, char_s2 := range s2 {
-        _, exists := set[char_s2]
-        if exists {
-            return "YES"
-        }
-    }
+	for _, char_s2 := range s2 {
+		_, exists := set[char_s2]
+		if exists {
+			return "YES"
+		}
+	}
 
-    return "NO"
+	return "NO"
 }
 
 func main() {
-    reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-    stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-    checkError(err)
+	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	checkError(err)
 
-    defer stdout.Close()
+	defer stdout.Close()
 
-    writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-    qTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
-    checkError(err)
-    q := int32(qTemp)
+	qTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+	checkError(err)
+	q := int32(qTemp)
 
-    for qItr := 0; qItr < int(q); qItr++ {
-        s1 := readLine(reader)
+	for qItr := 0; qItr < int(q); qItr++ {
+		s1 := readLine(reader)
 
-        s2 := readLine(reader)
+		s2 := readLine(reader)
 
-        result := twoStrings(s1, s2)
+		result := twoStrings(s1, s2)
 
-        fmt.Fprintf(writer, "%s\n", result)
-    }
+		fmt.Fprintf(writer, "%s\n", result)
+	}
 
-    writer.Flush()
+	writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
-    str, _, err := reader.ReadLine()
-    if err == io.EOF {
-        return ""
-    }
+	str, _, err := reader.ReadLine()
+	if err == io.EOF {
+		return ""
+	}
 
-    return strings.TrimRight(string(str), "\r\n")
+	return strings.TrimRight(string(str), "\r\n")
 }
 
 func checkError(err error) {
-    if err != nil {
-        panic(err)
-    }
+	if err != nil {
+		panic(err)
+	}
 }

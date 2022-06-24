@@ -2,12 +2,12 @@
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "io"
-    "os"
-    "strconv"
-    "strings"
+	"bufio"
+	"fmt"
+	"io"
+	"os"
+	"strconv"
+	"strings"
 )
 
 /*
@@ -17,59 +17,59 @@ import (
  * The function accepts INTEGER n as parameter.
  */
 func stepPerms(n int32) int32 {
-    if n < 3 {
-        return n
-    }
+	if n < 3 {
+		return n
+	}
 
-    a, b, c, current := 1, 2, 4, 0
+	a, b, c, current := 1, 2, 4, 0
 
-    for i := int32(3); i < n; i++ {
-        current = a + b + c
-        a, b = b, c
-        c = current
-    }
+	for i := int32(3); i < n; i++ {
+		current = a + b + c
+		a, b = b, c
+		c = current
+	}
 
-    return int32(c)
+	return int32(c)
 }
 
 func main() {
-    reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-    stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-    checkError(err)
+	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	checkError(err)
 
-    defer stdout.Close()
+	defer stdout.Close()
 
-    writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-    sTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
-    checkError(err)
-    s := int32(sTemp)
+	sTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+	checkError(err)
+	s := int32(sTemp)
 
-    for sItr := 0; sItr < int(s); sItr++ {
-        nTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
-        checkError(err)
-        n := int32(nTemp)
+	for sItr := 0; sItr < int(s); sItr++ {
+		nTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
+		checkError(err)
+		n := int32(nTemp)
 
-        res := stepPerms(n)
+		res := stepPerms(n)
 
-        fmt.Fprintf(writer, "%d\n", res)
-    }
+		fmt.Fprintf(writer, "%d\n", res)
+	}
 
-    writer.Flush()
+	writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
-    str, _, err := reader.ReadLine()
-    if err == io.EOF {
-        return ""
-    }
+	str, _, err := reader.ReadLine()
+	if err == io.EOF {
+		return ""
+	}
 
-    return strings.TrimRight(string(str), "\r\n")
+	return strings.TrimRight(string(str), "\r\n")
 }
 
 func checkError(err error) {
-    if err != nil {
-        panic(err)
-    }
+	if err != nil {
+		panic(err)
+	}
 }

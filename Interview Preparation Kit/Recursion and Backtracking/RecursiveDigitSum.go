@@ -2,12 +2,12 @@
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "io"
-    "os"
-    "strconv"
-    "strings"
+	"bufio"
+	"fmt"
+	"io"
+	"os"
+	"strconv"
+	"strings"
 )
 
 /*
@@ -19,56 +19,56 @@ import (
  *  2. INTEGER k
  */
 func superDigit(n string, k int32) int32 {
-    n_len := len(n)
-    if n_len == 1 && k == 1 {
-        val, _ := strconv.Atoi(n)
-        return int32(val)
-    }
+	n_len := len(n)
+	if n_len == 1 && k == 1 {
+		val, _ := strconv.Atoi(n)
+		return int32(val)
+	}
 
-    sum := int64(0)
-    for _, digit := range n {
-        sum += int64(digit-'0') * int64(k)
-    }
+	sum := int64(0)
+	for _, digit := range n {
+		sum += int64(digit-'0') * int64(k)
+	}
 
-    return superDigit(strconv.FormatInt(sum, 10), 1)
+	return superDigit(strconv.FormatInt(sum, 10), 1)
 }
 
 func main() {
-    reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
+	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-    stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-    checkError(err)
+	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	checkError(err)
 
-    defer stdout.Close()
+	defer stdout.Close()
 
-    writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-    firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+	firstMultipleInput := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
-    n := firstMultipleInput[0]
+	n := firstMultipleInput[0]
 
-    kTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
-    checkError(err)
-    k := int32(kTemp)
+	kTemp, err := strconv.ParseInt(firstMultipleInput[1], 10, 64)
+	checkError(err)
+	k := int32(kTemp)
 
-    result := superDigit(n, k)
+	result := superDigit(n, k)
 
-    fmt.Fprintf(writer, "%d\n", result)
+	fmt.Fprintf(writer, "%d\n", result)
 
-    writer.Flush()
+	writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
-    str, _, err := reader.ReadLine()
-    if err == io.EOF {
-        return ""
-    }
+	str, _, err := reader.ReadLine()
+	if err == io.EOF {
+		return ""
+	}
 
-    return strings.TrimRight(string(str), "\r\n")
+	return strings.TrimRight(string(str), "\r\n")
 }
 
 func checkError(err error) {
-    if err != nil {
-        panic(err)
-    }
+	if err != nil {
+		panic(err)
+	}
 }
