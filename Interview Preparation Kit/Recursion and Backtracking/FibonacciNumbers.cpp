@@ -1,5 +1,5 @@
 // https://www.hackerrank.com/challenges/ctci-fibonacci-numbers/problem
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 

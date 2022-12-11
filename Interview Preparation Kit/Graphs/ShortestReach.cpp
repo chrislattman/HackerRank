@@ -1,10 +1,5 @@
 // https://www.hackerrank.com/challenges/ctci-bfs-shortest-reach/problem
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include <deque>
+#include <bits/stdc++.h>
 
 using namespace std;
 

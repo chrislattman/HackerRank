@@ -1,15 +1,9 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include <stack>
-#include <queue>
+// https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks/problem
+#include <bits/stdc++.h>
+
 using namespace std;
 
-template <typename T>
-
-class MyQueue {
+template <typename T> class MyQueue {
     public:
         stack<T> stack_newest_on_top, stack_oldest_on_top;
         void push(T x) {

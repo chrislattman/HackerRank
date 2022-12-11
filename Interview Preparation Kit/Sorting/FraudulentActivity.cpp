@@ -5,8 +5,7 @@ using namespace std;
 
 vector<string> split_string(string);
 
-template<typename T>
-class max_heap : public priority_queue<T, vector<T>> {
+template<typename T> class max_heap : public priority_queue<T, vector<T>> {
     public:
         bool remove(const T& value) {
             auto it = std::find(this->c.begin(), this->c.end(), value);
@@ -21,8 +20,7 @@ class max_heap : public priority_queue<T, vector<T>> {
         }
 };
 
-template<typename T>
-class min_heap : public priority_queue<T, vector<T>, greater<T>> {
+template<typename T> class min_heap : public priority_queue<T, vector<T>, greater<T>> {
     public:
         bool remove(const T& value) {
             auto it = std::find(this->c.begin(), this->c.end(), value);
