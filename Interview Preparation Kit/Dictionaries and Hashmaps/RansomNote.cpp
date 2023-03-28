@@ -7,7 +7,7 @@ vector<string> split_string(string);
 
 // Complete the checkMagazine function below.
 void checkMagazine(vector<string> magazine, vector<string> note) {
-    map<string, int> wordCounts;
+    unordered_map<string, int> wordCounts;
     bool no = false;
 
     for (int i = 0; i < magazine.size(); i++) {

@@ -5,7 +5,7 @@ using namespace std;
 
 // Complete the twoStrings function below.
 string twoStrings(string s1, string s2) {
-    set<char> chars;
+    unordered_set<char> chars;
 
     for (int i = 0; i < s1.length(); i++) {
         chars.insert(s1[i]);

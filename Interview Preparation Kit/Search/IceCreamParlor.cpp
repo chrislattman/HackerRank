@@ -7,7 +7,7 @@ vector<string> split_string(string);
 
 // Complete the whatFlavors function below.
 void whatFlavors(vector<int> cost, int money) {
-    map<int, int> prices;
+    unordered_map<int, int> prices;
     int cost_size = (int)cost.size();
 
     for (int i = 0; i < cost_size; i++) {

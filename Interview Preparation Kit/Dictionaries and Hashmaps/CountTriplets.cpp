@@ -9,8 +9,8 @@ vector<string> split(const string &);
 
 // Complete the countTriplets function below.
 long countTriplets(vector<long> arr, long r) {
-    map<long, long> first;
-    map<long, long> second;
+    unordered_map<long, long> first;
+    unordered_map<long, long> second;
     long triplets = 0;
 
     for (int i = 0; i < arr.size(); i++) {

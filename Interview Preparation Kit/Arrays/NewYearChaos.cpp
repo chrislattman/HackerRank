@@ -11,7 +11,7 @@ void minimumBribes(vector<int> q) {
     int index = 0;
     int lastSortedIndex = -1;
     bool too_chaotic = false;
-    map<int, int> bribeMap;
+    unordered_map<int, int> bribeMap;
 
     int stop = (int)q.size() - 1;
     while (index < stop) {

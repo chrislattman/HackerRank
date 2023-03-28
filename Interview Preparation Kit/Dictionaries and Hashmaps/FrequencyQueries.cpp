@@ -10,8 +10,8 @@ vector<string> split(const string &);
 // Complete the freqQuery function below.
 vector<int> freqQuery(vector<vector<int>> queries) {
     vector<int> output;
-    map<int, int> dict;
-    map<int, int> frequencies;
+    unordered_map<int, int> dict;
+    unordered_map<int, int> frequencies;
 
     for (int i = 0; i < queries.size(); i++) {
         int queryType = queries[i][0];

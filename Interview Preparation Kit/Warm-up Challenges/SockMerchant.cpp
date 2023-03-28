@@ -7,7 +7,7 @@ vector<string> split_string(string);
 
 // Complete the sockMerchant function below.
 int sockMerchant(int n, vector<int> ar) {
-    set<int> socks;
+    unordered_set<int> socks;
     int pairs = 0;
 
     for (int i = 0; i < n; i++) {

@@ -10,7 +10,7 @@ string isValid(string s) {
         return "YES";
     }
 
-    map<char, int> dict;
+    unordered_map<char, int> dict;
 
     for (int i = 0; i < s_len; i++) {
         char current = s[i];
@@ -27,7 +27,7 @@ string isValid(string s) {
     int highestFrequencyCount = 0;
     int lowestFrequencyCount = 0;
 
-    for (map<char, int>::iterator it = dict.begin(); it != dict.end(); it++) {
+    for (unordered_map<char, int>::iterator it = dict.begin(); it != dict.end(); it++) {
         int value = it->second;
         if (value > highestFrequency) {
             highestFrequency = value;

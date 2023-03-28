@@ -5,8 +5,8 @@ using namespace std;
 
 // Complete the makeAnagram function below.
 int makeAnagram(string a, string b) {
-    map<char, int> a_map;
-    map<char, int> b_map;
+    unordered_map<char, int> a_map;
+    unordered_map<char, int> b_map;
 
     int a_len = (int)a.length();
     for (int i = 0; i < a_len; i++) {
